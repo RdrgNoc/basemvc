@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-07-2022 a las 19:04:44
+-- Tiempo de generación: 12-07-2022 a las 17:32:08
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `basemvc`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `people`
+--
+
+CREATE TABLE `people` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `lastname` varchar(30) NOT NULL,
+  `lastname1` varchar(30) NOT NULL,
+  `age` int(3) NOT NULL,
+  `phone` varchar(12) NOT NULL,
+  `address` varchar(150) NOT NULL,
+  `sex` varchar(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `people`
+--
+
+INSERT INTO `people` (`id`, `name`, `lastname`, `lastname1`, `age`, `phone`, `address`, `sex`) VALUES
+(1, 'Rodrigo', 'Nochebuena', 'Martinez', 23, '7717935021', 'NA', 'M');
 
 -- --------------------------------------------------------
 
@@ -59,15 +83,16 @@ CREATE TABLE `users` (
   `last_connection` datetime NOT NULL,
   `baneado` int(11) NOT NULL,
   `borrado` int(11) NOT NULL,
-  `verificado` int(11) NOT NULL
+  `verificado` int(11) NOT NULL,
+  `people` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `surname`, `nickname`, `email`, `pass`, `registry_date`, `avatar`, `rol`, `last_connection`, `baneado`, `borrado`, `verificado`) VALUES
-(1, 'Rodrigo', 'Nochebuena Martínez', 'elwetto', 'musicfenixrl@gmail.com', '82fb2e0195b4b3201afe79396e1f30e25687d268ec9273edb2b58be75412c02805fb7aa4494e000be2292f1f0ebacb488f2869aae2324ae8ebd8db2df4c669a0', '2022-06-30', 'http://localhost:8080/basemvc/public/img/default-avatar.jpg', 1, '2022-06-30 02:54:00', 0, 0, 1);
+INSERT INTO `users` (`id`, `name`, `surname`, `nickname`, `email`, `pass`, `registry_date`, `avatar`, `rol`, `last_connection`, `baneado`, `borrado`, `verificado`, `people`) VALUES
+(1, 'Rodrigo', 'Nochebuena Martínez', 'elwetto', 'musicfenixrl@gmail.com', '82fb2e0195b4b3201afe79396e1f30e25687d268ec9273edb2b58be75412c02805fb7aa4494e000be2292f1f0ebacb488f2869aae2324ae8ebd8db2df4c669a0', '2022-06-30', 'http://localhost:8080/basemvc/public/img/default-avatar.jpg', 1, '2022-06-30 02:54:00', 0, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -96,6 +121,12 @@ CREATE TABLE `users_remember` (
 --
 
 --
+-- Indices de la tabla `people`
+--
+ALTER TABLE `people`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `roles`
 --
 ALTER TABLE `roles`
@@ -106,7 +137,8 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_users_id_rol` (`rol`);
+  ADD KEY `fk_users_id_rol` (`rol`),
+  ADD KEY `people` (`people`);
 
 --
 -- Indices de la tabla `users_activation`
@@ -123,6 +155,12 @@ ALTER TABLE `users_remember`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `people`
+--
+ALTER TABLE `people`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
