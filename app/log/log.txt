@@ -1,0 +1,18 @@
+[E][28-06-2022 23:29:01][AdminCategory/delete_category]: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`basemvc`.`categories_child`, CONSTRAINT `fk_categories_id` FOREIGN KEY (`id_cat`) REFERENCES `categories` (`id`))
+[E][28-06-2022 23:29:03][AdminCategory/delete_category]: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`basemvc`.`categories_child`, CONSTRAINT `fk_categories_id` FOREIGN KEY (`id_cat`) REFERENCES `categories` (`id`))
+[E][28-06-2022 23:29:30][AdminCategory/delete_category]: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`basemvc`.`categories_child`, CONSTRAINT `fk_categories_id` FOREIGN KEY (`id_cat`) REFERENCES `categories` (`id`))
+[E][28-06-2022 23:33:38][AdminCategory/delete_category]: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`basemvc`.`categories_child`, CONSTRAINT `fk_categories_id` FOREIGN KEY (`id_cat`) REFERENCES `categories` (`id`))
+[E][28-06-2022 23:33:40][AdminCategory/delete_category]: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`basemvc`.`categories_child`, CONSTRAINT `fk_categories_id` FOREIGN KEY (`id_cat`) REFERENCES `categories` (`id`))
+[E][30-06-2022 02:49:29][functions/sendEmail]: No se enviado el mensaje: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[E][30-06-2022 02:54:19][functions/sendEmail]: No se enviado el mensaje: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[E][30-06-2022 02:59:30][functions/sendEmail]: No se enviado el mensaje: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[E][30-06-2022 03:04:54][functions/sendEmail]: No se enviado el mensaje: Invalid address:  (From): root@localhost
+[E][30-06-2022 03:06:42][functions/sendEmail]: No se enviado el mensaje: Invalid address:  (From): root@localhost
+[E][30-06-2022 03:06:51][functions/sendEmail]: No se enviado el mensaje: Invalid address:  (From): root@localhost
+[E][30-06-2022 03:07:27][functions/sendEmail]: No se enviado el mensaje: Invalid address:  (From): root@localhost
+[E][30-06-2022 04:55:21][functions/sendEmail]: No se enviado el mensaje: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[E][30-06-2022 04:57:17][functions/sendEmail]: No se enviado el mensaje: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[E][30-06-2022 04:59:18][functions/sendEmail]: No se enviado el mensaje: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[E][30-06-2022 05:03:52][functions/sendEmail]: No se enviado el mensaje: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[E][30-06-2022 05:06:23][functions/sendEmail]: No se enviado el mensaje: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[E][30-06-2022 05:34:21][functions/sendEmail]: No se enviado el mensaje: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
