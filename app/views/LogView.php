@@ -1,9 +1,18 @@
 <?php require_once '___header.php'; ?>
+
+    <script>
+        $(document).ready(function () {
+            var table001 = $('#tableLogs').DataTable({
+                responsive: true,
+            });
+        });
+    </script>
+
 <section id="get-a-quote" class="get-a-quote">
     <div class="container" data-aos="fade-up">
         <div class="row g-0">
             <div class="col-lg-12">
-                <table id="example001" class="display" style="width:100%">
+                <table id="tableLogs" class="display" style="width:100%">
                     <thead>
                         <tr>
                             <th>Info</th>

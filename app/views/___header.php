@@ -34,13 +34,6 @@
   
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/fc-4.1.0/r-2.3.0/sc-2.0.7/datatables.min.css"/>
   <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/fc-4.1.0/r-2.3.0/sc-2.0.7/datatables.min.js"></script>
-  <script>
-    $(document).ready(function () {
-        $('#example001').DataTable({
-          responsive: true,
-        });
-    });
-  </script>
 </head>
 
 <body>
@@ -66,6 +59,7 @@
         <ul>
           <li><a href="<?php echo BASE_URL_ROUTE ?>welcomeuser">Inicio</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>perfil">Perfil</a></li>
+          <li><a href="<?php echo BASE_URL_ROUTE ?>ver-infracciones">Infracciones</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>logout">Salir</a></li>
           <li><a class="get-a-quote" href="#">¡Hola usuario! <?php echo $nickname; ?></a></li>
         </ul>
@@ -78,6 +72,14 @@
           <li><a href="<?php echo BASE_URL_ROUTE ?>welcomeadmin">Inicio</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>log">Logs</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>perfil">Perfil</a></li>
+            <li class="dropdown"><a href="#"><span>Infracciones</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>ver-infracciones">Listar</a></li>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>crear-infracciones">Crear</a></li>
+                </ul>
+            </li>
+          <li><a href="<?php echo BASE_URL_ROUTE ?>ver-vehiculos">Vehiculos</a></li>
+          <li><a href="<?php echo BASE_URL_ROUTE ?>ver-personas">Personas</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>logout">Salir</a></li>
           <li><a class="get-a-quote" href="#">¡Hola admin! <?php echo $nickname; ?></a></li>
         </ul>

@@ -51,10 +51,10 @@ define("DB", "basemvc");
 
 //  Conf Email
 
-define("EMAIL_HOST", "smtp-relay.sendinblue.com");
 // sendinblue.com
-define("EMAIL_USERNAME", "aon1399@gmail.com");
 // neversaydiexl0
+define("EMAIL_HOST", "smtp-relay.sendinblue.com");
+define("EMAIL_USERNAME", "aon1399@gmail.com");
 define("EMAIL_PASS", "tFXIjOq1pD3YvNCM");
 define("EMAIL_SMTPSECURE", "tls");
 define("EMAIL_PORT", 587);

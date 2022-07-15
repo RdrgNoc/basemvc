@@ -30,6 +30,11 @@ $router->register(new Route('/^\/' . BASE_URL . '\/editar-perfil-form$/', 'UserC
 $router->register(new Route('/^\/' . BASE_URL . '\/editar-password-form$/', 'UserController', 'edit_password'));
 // PAGINA QUE MUESTRA LOS LOGS DEL SISTEMA
 $router->register(new Route('/^\/' . BASE_URL . '\/log$/', 'LogController', 'display'));
+// PAGINA QUE MUESTRA LAS INFRACCIONES
+$router->register(new Route('/^\/' . BASE_URL . '\/ver-infracciones$/', 'InfringementController', 'display'));
+$router->register(new Route('/^\/' . BASE_URL . '\/crear-infracciones$/', 'InfringementController', 'create'));
+$router->register(new Route('/^\/' . BASE_URL . '\/ver-vehiculos$/', 'VehicleController', 'display'));
+$router->register(new Route('/^\/' . BASE_URL . '\/ver-personas$/', 'PeopleController', 'display'));
 
 
 
@@ -65,5 +70,6 @@ $router->register(new Route('/^\/' . BASE_URL . '\/verificar\/(\w+)$/', 'UserCon
 
 // Users
 $router->register(new Route('/^\/' . BASE_URL . '\/user-verification\/(\w+)$/', 'UserController', 'verification'));
+
 $router->register(new Route('/^\/' . BASE_URL . '/', 'IndexController', 'display'));
 $router->handleRequest($_SERVER['REQUEST_URI']);
