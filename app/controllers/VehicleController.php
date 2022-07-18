@@ -19,12 +19,47 @@ class VehicleController extends Controller
     {
         isLogged();
         $data = array();
-        $data = $this->model->createVehicles();
         $data['createVehicle'] = true;
         $this->view("VehicleView", $data);
     }
-    public function autocompleteCirculacion()
+    public function registerVehicle()
     {
-        $data = $this->model->autoCirculacion();
+        if (isset($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
+            $data = array();
+            $params = array(
+                'modelo' => $_POST['modelo'],
+                'marca' => $_POST['marca'],
+                'descripcion' => $_POST['descripcion'],
+                'no_circulacion' => $_POST['no_circulacion'],
+                'no_licencia' => $_POST['no_licencia'],
+                'matricula' => $_POST['matricula']
+            );
+
+            $errors = $this->model->checkErrors($params);
+
+            if (count($errors) === 0) {
+                $params = array(
+                    'modelo' => $_POST['modelo'],
+                    'marca' => $_POST['marca'],
+                    'descripcion' => $_POST['descripcion'],
+                    'no_circulacion' => $_POST['no_circulacion'],
+                    'no_licencia' => $_POST['no_licencia'],
+                    'matricula' => $_POST['matricula']
+                );
+
+                $data = $this->model->registry($params);
+            } else {
+                $data['show_message_info'] = true;
+                $data['success'] = false;
+                $data['message'] = $errors;
+                $data['createVehicle'] = true;
+            }
+
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "VehicleController/registerVehicle", json_encode($data));
+            }
+            $data['createVehicle'] = true;
+            $this->view("VehicleView", $data);
+        }
     }
 }

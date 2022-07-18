@@ -54,6 +54,8 @@ $router->register(new Route('/^\/' . BASE_URL . '\/reenviar-confirmacion$/', 'Us
 $router->register(new Route('/^\/' . BASE_URL . '\/desuscribirse-confirm$/', 'UserController', 'display_unsubscribe'));
 // FORM PARA EDITAR CONTRASEÑA
 $router->register(new Route('/^\/' . BASE_URL . '\/change_password$/', 'UserController', 'change_password'));
+// FORM PARA REGISTRAR VEHICULO
+$router->register(new Route('/^\/' . BASE_URL . '\/registerVehicle$/', 'VehicleController', 'registerVehicle'));
 
 
 

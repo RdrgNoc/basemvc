@@ -29,7 +29,7 @@ class VehicleModel
             $data['show_message_info'] = true;
             $data['success'] = false;
             $data['message'] = ERROR_GENERAL;
-            writeLog(ERROR_LOG, "Infringement/displayInfringement", $e->getMessage());
+            writeLog(ERROR_LOG, "Vehicle/displayVehicles", $e->getMessage());
         }
         $db->close();
 
@@ -37,40 +37,76 @@ class VehicleModel
     }
     function checkErrors($params)
     {
+        $errors = array();
+        $paramsDB = array();
 
-        if ($params['pass'] !== $params['confirm-pass']) {
-            array_push($errors, "Las contraseña no coinciden.");
+        if (empty($params['modelo'])) {
+            array_push($errors, "El modelo no puede estar vacio.");
         }
-        if ($params['pass'] === "" && $params['confirm-pass'] === "") {
-            array_push($errors, "Los campos no pueden ir vacios, ingrese una contraseña");
+
+        if (empty($params['marca'])) {
+            array_push($errors, "La marca no puede estar vacio.");
         }
+
+        if (empty($params['descripcion'])) {
+            array_push($errors, "La descripcion no puede estar vacio.");
+        }
+
+        if (empty($params['no_circulacion'])) {
+            array_push($errors, "El no. circulación no puede estar vacio.");
+        }
+        
+        if (empty($params['no_licencia'])) {
+            array_push($errors, "El no. licencia no puede estar vacio.");
+        }
+        
+        if (empty($params['matricula'])) {
+            array_push($errors, "La matricula no puede estar vacio.");
+        }
+        
+        return $errors;
     }
-    public function createVehicles()
+    public function registry($params)
     {
         $db = new PDODB();
         $data = array();
+        $data['show_message_info'] = true;
         $paramsDB = array();
         try {
-            $sql = "INSERT INTO vehicles VALUES (?,?,?,?,?,?)";
-        } catch (\Exception $e) {
-            $data['show_message_info'] = true;
+            $id_vehicle = $db->getLastId("id", "vehicles");
+            $sql = "INSERT INTO vehicles VALUES(?,?,?,?,?,?,?)";
+
+            $paramsDB = array(
+                $id_vehicle,
+                $params['modelo'],
+                $params['marca'],
+                $params['descripcion'],
+                $params['no_circulacion'],
+                $params['no_licencia'],
+                $params['matricula'],
+            );
+
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "Vehicle/registry", $sql);
+                writeLog(INFO_LOG, "Vehicle/registry", json_encode($paramsDB));
+            }
+
+            $success = $db->executeInstructionPrepared($sql, $paramsDB);
+            $data['success'] = $success;
+            $data['text-center'] = true;
+
+            if ($success) {
+                $data['message'] = "Se registro el vehiculo";
+            } else {
+                $data['message'] = "Su registro no se ha realizado con éxito.";
+            }
+        } catch (Exception $e) {
             $data['success'] = false;
             $data['message'] = ERROR_GENERAL;
-            writeLog(ERROR_LOG, "Infringement/displayInfringement", $e->getMessage());
+            writeLog(ERROR_LOG, "Vehicle/registry", $e->getMessage());
         }
-    }
-    public function autoCirculacion()
-    {
-        $db = new PDODB();
-        $data = array();
-        $paramsDB = array();
-        try {
-            $sql = "";
-        } catch (\Exception $e) {
-            $data['show_message_info'] = true;
-            $data['success'] = false;
-            $data['message'] = ERROR_GENERAL;
-            writeLog(ERROR_LOG, "Infringement/displayInfringement", $e->getMessage());
-        }
+
+        $db->close();
+        return $data;
     }
 }

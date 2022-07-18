@@ -72,8 +72,6 @@
     <script>
         $(document).ready(function(){
             console.log("Hola");
-
-            var rutaAutocomplete = '<?php echo BASE_URL; ?>controllers/VehicleController.php';
         });
     </script>
 <?php include_once '___footer.php'; ?>
