@@ -22,6 +22,7 @@
                                 <th>No. Circulación</th>
                                 <th>No. Licencia</th>
                                 <th>Matricula</th>
+                                <th>Acciones</th>
                             </tr>
                             <?php foreach ($data['vehicles'] as $key => $value) { ?>
                                 <tr>
@@ -32,12 +33,27 @@
                                     <td><?php echo $value['no_circulacion']; ?></td>
                                     <td><?php echo $value['no_licencia']; ?></td>
                                     <td><?php echo $value['matricula']; ?></td>
+                                    <td>
+                                        <a class="btn btn-warning btn-icon" title="Editar" href="<?php echo BASE_URL_ROUTE ?>vehicle/edit/<?php echo $value['id']; ?>">
+                                            <i class="fa fa-pen-to-square" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="btn btn-danger btn-icon" title="Eliminar" href="<?php echo BASE_URL_ROUTE ?>vehicle/delete/<?php echo $value['id']; ?>">
+                                            <i class="fa fa-trash-can" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             <?php } ?>
                         </table>
                     <?php } elseif (isset($data['createVehicle']) || isset($data['editVehicle'])) { ?>
                         <form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['createVehicle']) ? 'registerVehicle' : 'editVehicle'; ?>" method="POST" class="php-email-form">
                         <h3>Registrar vehiculo</h3>
+                            <?php
+                            if (isset($data['editVehicle'])) {
+                                ?>
+                                <input type="hidden" name="id_vehicle" value="<?php echo $data['info_vehicle']['id']; ?>" />
+                                <?php
+                            }
+                            ?>
                             <div class="row gy-4">
                                 <div class="col-md-6">
                                     <input type="text" name="modelo" class="form-control" id="modelo" value="<?php if (isset($data['info_vehicle'])) {echo $data['info_vehicle']['modelo'];} ?>" placeholder="Modelo" />

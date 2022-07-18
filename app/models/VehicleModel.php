@@ -109,4 +109,94 @@ class VehicleModel
         $db->close();
         return $data;
     }
+
+    public function delete($params)
+    {
+        $db = new PDODB();
+        $data = array();
+        $data['show_message_info'] = true;
+        $paramsDB = array();
+        try {
+            $sql = "DELETE FROM vehicles WHERE id = ?";
+
+            $paramsDB = array(
+                $params['id_vehicle']
+            );
+
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "VehicleModel/delete", $sql);
+                writeLog(INFO_LOG, "VehicleModel/delete", json_encode($paramsDB));
+            }
+
+            $data['success'] = $db->executeInstructionPrepared($sql, $paramsDB);
+        } catch (Exception $e) {
+            $data['success'] = false;
+            $data['message'] = ERROR_GENERAL;
+            writeLog(ERROR_LOG, "VehicleModel/delete", $e->getMessage());
+        }
+
+        $db->close();
+        return $data;
+    }
+
+    public function getInfoVehicle($params)
+    {
+        $db = new PDODB();
+        $data = array();
+        $paramsDB = array();
+        try {
+            $sql = "SELECT * FROM vehicles WHERE id = ?";
+
+            $paramsDB = array(
+                $params['id_vehicle']
+            );
+
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "VehicleModel/getInfoVehicle", $sql);
+                writeLog(INFO_LOG, "VehicleModel/getInfoVehicle", json_encode($paramsDB));
+            }
+
+            $data['info_vehicle'] = $db->getDataSinglePrepared($sql, $paramsDB);
+        } catch (Exception $e) {
+            $data['success'] = false;
+            $data['message'] = ERROR_GENERAL;
+            writeLog(ERROR_LOG, "VehicleModel/getInfoVehicle", $e->getMessage());
+        }
+
+        $db->close();
+        return $data;
+    }
+
+    public function edit($params)
+    {
+        $db = new PDODB();
+        $data = array();
+        $data['show_message_info'] = true;
+        $paramsDB = array();
+        try {
+            $sql = "UPDATE vehicles SET modelo = ?, marca = ?, descripcion = ?, no_circulacion = ?, no_licencia = ?, matricula = ? WHERE id = ?";
+            $paramsDB = array(
+                $params['modelo'],
+                $params['marca'],
+                $params['descripcion'],
+                $params['no_circulacion'],
+                $params['no_licencia'],
+                $params['matricula'],
+                $params['id_vehicle']
+            );
+
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "VehicleModel/edit", $sql);
+                writeLog(INFO_LOG, "VehicleModel/edit", json_encode($paramsDB));
+            }
+
+            $data['success'] = $db->executeInstructionPrepared($sql, $paramsDB);
+        } catch (Exception $e) {
+            $data['success'] = false;
+            $data['message'] = ERROR_GENERAL;
+            writeLog(ERROR_LOG, "VehicleModel/edit", $e->getMessage());
+        }
+        $db->close();
+        return $data;
+    }
 }

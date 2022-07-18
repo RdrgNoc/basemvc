@@ -56,6 +56,7 @@ $router->register(new Route('/^\/' . BASE_URL . '\/desuscribirse-confirm$/', 'Us
 $router->register(new Route('/^\/' . BASE_URL . '\/change_password$/', 'UserController', 'change_password'));
 // FORM PARA REGISTRAR VEHICULO
 $router->register(new Route('/^\/' . BASE_URL . '\/registerVehicle$/', 'VehicleController', 'registerVehicle'));
+$router->register(new Route('/^\/' . BASE_URL . '\/editVehicle$/', 'VehicleController', 'edit'));
 
 
 
@@ -68,6 +69,10 @@ $router->register(new Route('/^\/' . BASE_URL . '\/no-desuscribirse$/', 'UserCon
 $router->register(new Route('/^\/' . BASE_URL . '\/logout$/', 'UserController', 'logout'));
 // BOTON PARA ELIMINAR TODOS LOS LOGS
 $router->register(new Route('/^\/' . BASE_URL . '\/log\/delete-log$/', 'LogController', 'delete_content_log'));
+
+$router->register(new Route('/^\/' . BASE_URL . '\/vehicle\/delete\/(\w+)$/', 'VehicleController', 'delete'));
+
+$router->register(new Route('/^\/' . BASE_URL . '\/vehicle\/edit\/(\w+)$/', 'VehicleController', 'editVehicle'));
 
 $router->register(new Route('/^\/' . BASE_URL . '\/verificar\/(\w+)$/', 'UserController', 'verification'));
 
