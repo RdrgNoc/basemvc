@@ -34,6 +34,7 @@ $router->register(new Route('/^\/' . BASE_URL . '\/log$/', 'LogController', 'dis
 $router->register(new Route('/^\/' . BASE_URL . '\/ver-infracciones$/', 'InfringementController', 'display'));
 $router->register(new Route('/^\/' . BASE_URL . '\/crear-infracciones$/', 'InfringementController', 'create'));
 $router->register(new Route('/^\/' . BASE_URL . '\/ver-vehiculos$/', 'VehicleController', 'display'));
+$router->register(new Route('/^\/' . BASE_URL . '\/crear-vehiculos$/', 'VehicleController', 'create'));
 $router->register(new Route('/^\/' . BASE_URL . '\/ver-personas$/', 'PeopleController', 'display'));
 
 

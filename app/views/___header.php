@@ -78,7 +78,12 @@
                     <li><a href="<?php echo BASE_URL_ROUTE ?>crear-infracciones">Crear</a></li>
                 </ul>
             </li>
-          <li><a href="<?php echo BASE_URL_ROUTE ?>ver-vehiculos">Vehiculos</a></li>
+            <li class="dropdown"><a href="#"><span>Vehiculos</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>ver-vehiculos">Listar</a></li>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>crear-vehiculos">Crear</a></li>
+                </ul>
+            </li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>ver-personas">Personas</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>logout">Salir</a></li>
           <li><a class="get-a-quote" href="#">¡Hola admin! <?php echo $nickname; ?></a></li>

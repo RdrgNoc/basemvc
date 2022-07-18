@@ -35,9 +35,45 @@
                                 </tr>
                             <?php } ?>
                         </table>
+                    <?php } elseif (isset($data['createVehicle']) || isset($data['editVehicle'])) { ?>
+                        <form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['createVehicle']) ? 'registerVehicle' : 'editVehicle'; ?>" method="POST" class="php-email-form">
+                        <h3>Registrar vehiculo</h3>
+                            <div class="row gy-4">
+                                <div class="col-md-6">
+                                    <input type="text" name="modelo" class="form-control" id="modelo" value="<?php if (isset($data['info_vehicle'])) {echo $data['info_vehicle']['modelo'];} ?>" placeholder="Modelo" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="marca" class="form-control" id="marca" value="<?php if (isset($data['info_vehicle'])) {echo $data['info_vehicle']['marca'];} ?>" placeholder="Marca" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="textarea" name="descripcion" class="form-control" id="descripcion" value="<?php if (isset($data['info_vehicle'])) {echo $data['info_vehicle']['descripcion'];} ?>" placeholder="Descripción" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="no_circulacion" class="form-control" id="no_circulacion" value="<?php if (isset($data['info_vehicle'])) {echo $data['info_vehicle']['no_circulacion'];} ?>" placeholder="No. Circulacion" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="no_licencia" class="form-control" id="no_licencia" value="<?php if (isset($data['info_vehicle'])) {echo $data['info_vehicle']['no_licencia'];} ?>" placeholder="No. Licencia" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="matricula" class="form-control" id="matricula" value="<?php if (isset($data['info_vehicle'])) {echo $data['info_vehicle']['matricula'];} ?>" placeholder="Matricula" />
+                                </div>
+                                
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" name="action" class="btn btn-primary btn-block"><?php echo isset($data['createVehicle']) ? 'Registro' : 'Editar'; ?></button>
+                                </div>
+                            </div>
+                        </form>
                     <?php } ?>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        $(document).ready(function(){
+            console.log("Hola");
+
+            var rutaAutocomplete = '<?php echo BASE_URL; ?>controllers/VehicleController.php';
+        });
+    </script>
 <?php include_once '___footer.php'; ?>

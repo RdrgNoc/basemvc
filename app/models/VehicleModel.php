@@ -35,4 +35,42 @@ class VehicleModel
 
         return $data;
     }
+    function checkErrors($params)
+    {
+
+        if ($params['pass'] !== $params['confirm-pass']) {
+            array_push($errors, "Las contraseña no coinciden.");
+        }
+        if ($params['pass'] === "" && $params['confirm-pass'] === "") {
+            array_push($errors, "Los campos no pueden ir vacios, ingrese una contraseña");
+        }
+    }
+    public function createVehicles()
+    {
+        $db = new PDODB();
+        $data = array();
+        $paramsDB = array();
+        try {
+            $sql = "INSERT INTO vehicles VALUES (?,?,?,?,?,?)";
+        } catch (\Exception $e) {
+            $data['show_message_info'] = true;
+            $data['success'] = false;
+            $data['message'] = ERROR_GENERAL;
+            writeLog(ERROR_LOG, "Infringement/displayInfringement", $e->getMessage());
+        }
+    }
+    public function autoCirculacion()
+    {
+        $db = new PDODB();
+        $data = array();
+        $paramsDB = array();
+        try {
+            $sql = "";
+        } catch (\Exception $e) {
+            $data['show_message_info'] = true;
+            $data['success'] = false;
+            $data['message'] = ERROR_GENERAL;
+            writeLog(ERROR_LOG, "Infringement/displayInfringement", $e->getMessage());
+        }
+    }
 }
