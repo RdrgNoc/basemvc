@@ -6,7 +6,7 @@ class Route
   public $controller;
   public $method;
 
-  public function __construct(string $path, string $controller, string $method)
+  public function __construct($path, $controller, $method)
   {
     $this->path = $path;
     $this->controller = $controller;

@@ -9,7 +9,7 @@ class Router
     $this->routes[] = $route;
   }
 
-  public function handleRequest(string $request)
+  public function handleRequest($request)
   {
 
     $matches = [];
