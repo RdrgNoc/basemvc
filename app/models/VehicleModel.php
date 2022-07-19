@@ -38,32 +38,24 @@ class VehicleModel
     function checkErrors($params)
     {
         $errors = array();
-        $paramsDB = array();
-
         if (empty($params['modelo'])) {
             array_push($errors, "El modelo no puede estar vacio.");
         }
-
         if (empty($params['marca'])) {
             array_push($errors, "La marca no puede estar vacio.");
         }
-
         if (empty($params['descripcion'])) {
             array_push($errors, "La descripcion no puede estar vacio.");
         }
-
         if (empty($params['no_circulacion'])) {
             array_push($errors, "El no. circulación no puede estar vacio.");
         }
-        
         if (empty($params['no_licencia'])) {
             array_push($errors, "El no. licencia no puede estar vacio.");
         }
-        
         if (empty($params['matricula'])) {
             array_push($errors, "La matricula no puede estar vacio.");
         }
-        
         return $errors;
     }
     public function registry($params)

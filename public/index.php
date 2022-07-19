@@ -36,6 +36,7 @@ $router->register(new Route('/^\/' . BASE_URL . '\/crear-infracciones$/', 'Infri
 $router->register(new Route('/^\/' . BASE_URL . '\/ver-vehiculos$/', 'VehicleController', 'display'));
 $router->register(new Route('/^\/' . BASE_URL . '\/crear-vehiculos$/', 'VehicleController', 'create'));
 $router->register(new Route('/^\/' . BASE_URL . '\/ver-personas$/', 'PeopleController', 'display'));
+$router->register(new Route('/^\/' . BASE_URL . '\/crear-personas$/', 'PeopleController', 'create'));
 
 
 
@@ -57,6 +58,8 @@ $router->register(new Route('/^\/' . BASE_URL . '\/change_password$/', 'UserCont
 // FORM PARA REGISTRAR VEHICULO
 $router->register(new Route('/^\/' . BASE_URL . '\/registerVehicle$/', 'VehicleController', 'registerVehicle'));
 $router->register(new Route('/^\/' . BASE_URL . '\/editVehicle$/', 'VehicleController', 'edit'));
+$router->register(new Route('/^\/' . BASE_URL . '\/registerPeople$/', 'PeopleController', 'registerPeople'));
+$router->register(new Route('/^\/' . BASE_URL . '\/editPeople$/', 'PeopleController', 'edit'));
 
 
 
@@ -69,12 +72,16 @@ $router->register(new Route('/^\/' . BASE_URL . '\/no-desuscribirse$/', 'UserCon
 $router->register(new Route('/^\/' . BASE_URL . '\/logout$/', 'UserController', 'logout'));
 // BOTON PARA ELIMINAR TODOS LOS LOGS
 $router->register(new Route('/^\/' . BASE_URL . '\/log\/delete-log$/', 'LogController', 'delete_content_log'));
+$router->register(new Route('/^\/' . BASE_URL . '\/verificar\/(\w+)$/', 'UserController', 'verification'));
 
 $router->register(new Route('/^\/' . BASE_URL . '\/vehicle\/delete\/(\w+)$/', 'VehicleController', 'delete'));
 
 $router->register(new Route('/^\/' . BASE_URL . '\/vehicle\/edit\/(\w+)$/', 'VehicleController', 'editVehicle'));
 
-$router->register(new Route('/^\/' . BASE_URL . '\/verificar\/(\w+)$/', 'UserController', 'verification'));
+$router->register(new Route('/^\/' . BASE_URL . '\/people\/delete\/(\w+)$/', 'PeopleController', 'delete'));
+
+$router->register(new Route('/^\/' . BASE_URL . '\/people\/edit\/(\w+)$/', 'PeopleController', 'editPeople'));
+
 
 // Users
 $router->register(new Route('/^\/' . BASE_URL . '\/user-verification\/(\w+)$/', 'UserController', 'verification'));

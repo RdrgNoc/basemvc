@@ -32,15 +32,15 @@
                         <td><?php echo $value['nombre']; ?></td>
                         <td><?php echo $value['modelo']; ?></td>
                         <?php if ($value['conditions'] === "No pagado") { ?>
-                            <td><span class="badge bg-dark rounded-pill"><?php echo $value['conditions']; ?></span></td>
+                            <td><span class="badge bg-dark"><?php echo $value['conditions']; ?></span></td>
                         <?php } else if ($value['conditions'] === "Pagado") { ?>
-                            <td><span class="badge bg-success rounded-pill"><?php echo $value['conditions']; ?></span></td>
+                            <td><span class="badge bg-success"><?php echo $value['conditions']; ?></span></td>
                         <?php } else if ($value['conditions'] === "Eliminado") { ?>
-                            <td><span class="badge bg-danger rounded-pill"><?php echo $value['conditions']; ?></span></td>
+                            <td><span class="badge bg-danger"><?php echo $value['conditions']; ?></span></td>
                         <?php } else if ($value['conditions'] === "Cancelado") { ?>
-                            <td><span class="badge bg-warning rounded-pill"><?php echo $value['conditions']; ?></span></td>
+                            <td><span class="badge bg-warning"><?php echo $value['conditions']; ?></span></td>
                         <?php } else { ?>
-                            <td><span class="badge bg-secondary rounded-pill"><?php echo $value['conditions']; ?></span></td>
+                            <td><span class="badge bg-secondary"><?php echo $value['conditions']; ?></span></td>
                         <?php } ?>
                     </tr>
                 <?php } ?>

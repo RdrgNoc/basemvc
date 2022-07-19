@@ -34,11 +34,11 @@
                                     <td><?php echo $value['no_licencia']; ?></td>
                                     <td><?php echo $value['matricula']; ?></td>
                                     <td>
-                                        <a class="btn btn-warning btn-icon" title="Editar" href="<?php echo BASE_URL_ROUTE ?>vehicle/edit/<?php echo $value['id']; ?>">
-                                            <i class="fa fa-pen-to-square" aria-hidden="true"></i>
+                                        <a class="badge text-bg-light" title="Editar" href="<?php echo BASE_URL_ROUTE ?>vehicle/edit/<?php echo $value['id']; ?>">
+                                            <i class="fa fa-pen-to-square"></i>
                                         </a>
-                                        <a class="btn btn-danger btn-icon" title="Eliminar" href="<?php echo BASE_URL_ROUTE ?>vehicle/delete/<?php echo $value['id']; ?>">
-                                            <i class="fa fa-trash-can" aria-hidden="true"></i>
+                                        <a class="badge text-bg-light" title="Eliminar" href="<?php echo BASE_URL_ROUTE ?>vehicle/delete/<?php echo $value['id']; ?>">
+                                            <i class="fa fa-trash-can"></i>
                                         </a>
                                     </td>
                                 </tr>
