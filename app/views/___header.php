@@ -9,6 +9,12 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+    <script src="<?php echo BASE_URL_ROUTE ?>public/includes/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="<?php echo BASE_URL_ROUTE ?>public/includes/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="<?php echo BASE_URL_ROUTE ?>public/includes/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="<?php echo BASE_URL_ROUTE ?>public/includes/jquery-steps/jquery.steps.min.js"></script>
+
   <!-- Favicons -->
   <link href="<?php echo BASE_URL_ROUTE ?>public/assets/img/favicon.png" rel="icon">
   <link href="<?php echo BASE_URL_ROUTE ?>public/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -31,9 +37,10 @@
   <!-- Template Main CSS File -->
   <link href="<?php echo BASE_URL_ROUTE ?>public/assets/css/main.css" rel="stylesheet">
 
-  
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/fc-4.1.0/r-2.3.0/sc-2.0.7/datatables.min.css"/>
-  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/fc-4.1.0/r-2.3.0/sc-2.0.7/datatables.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/cr-1.5.6/fc-4.1.0/r-2.3.0/rr-1.2.8/sl-1.4.0/datatables.min.css"/>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/cr-1.5.6/fc-4.1.0/r-2.3.0/rr-1.2.8/sl-1.4.0/datatables.min.js"></script>
 </head>
 
 <body>

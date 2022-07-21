@@ -4,6 +4,7 @@
         $(document).ready(function () {
             var table004 = $('#tablePeoples').DataTable({
                 responsive: true,
+                compact: false,
             });
         });
     </script>
@@ -14,6 +15,7 @@
                 <div class="col-12">
                     <?php if (isset($data['displayAllPeoples'])) { ?>
                         <table id="tablePeoples" class="display" style="width:100%">
+                            <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
@@ -25,6 +27,8 @@
                                 <th>Sexo</th>
                                 <th>Acciones</th>
                             </tr>
+                            </thead>
+                            <tbody>
                             <?php foreach ($data['peoples'] as $key => $value) { ?>
                                 <tr>
                                     <td><?php echo $value['id']; ?></td>
@@ -45,6 +49,20 @@
                                     </td>
                                 </tr>
                             <?php } ?>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Ap. Paterno</th>
+                                <th>Ap. Materno</th>
+                                <th>Edad</th>
+                                <th>Telefono</th>
+                                <th>Dirección</th>
+                                <th>Sexo</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </tfoot>
                         </table>
                     <?php } elseif (isset($data['createPeople']) || isset($data['editPeople'])) { ?>
                         <form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['createPeople']) ? 'registerPeople' : 'editPeople'; ?>" method="POST" class="php-email-form">

@@ -14,6 +14,7 @@
                 <div class="col-12">
                     <?php if (isset($data['displayAllVehicles'])) { ?>
                         <table id="tableVehicles" class="display" style="width:100%">
+                            <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Modelo</th>
@@ -24,6 +25,8 @@
                                 <th>Matricula</th>
                                 <th>Acciones</th>
                             </tr>
+                            </thead>
+                                    <tbody>
                             <?php foreach ($data['vehicles'] as $key => $value) { ?>
                                 <tr>
                                     <td><?php echo $value['id']; ?></td>
@@ -43,6 +46,19 @@
                                     </td>
                                 </tr>
                             <?php } ?>
+                                    </tbody>
+                            <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Modelo</th>
+                                <th>Marca</th>
+                                <th>Descripción</th>
+                                <th>No. Circulación</th>
+                                <th>No. Licencia</th>
+                                <th>Matricula</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </tfoot>
                         </table>
                     <?php } elseif (isset($data['createVehicle']) || isset($data['editVehicle'])) { ?>
                         <form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['createVehicle']) ? 'registerVehicle' : 'editVehicle'; ?>" method="POST" class="php-email-form">
@@ -85,9 +101,5 @@
         </div>
     </section>
 
-    <script>
-        $(document).ready(function(){
-            console.log("Hola");
-        });
-    </script>
+
 <?php include_once '___footer.php'; ?>

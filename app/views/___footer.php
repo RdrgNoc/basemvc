@@ -30,6 +30,8 @@
 
 <div id="preloader"></div>
 
+
+
 <!-- Vendor JS Files -->
 <script src="<?php echo BASE_URL_ROUTE ?>public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?php echo BASE_URL_ROUTE ?>public/assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -43,6 +45,10 @@
 <!-- Template Main JS File -->
 <script src="<?php echo BASE_URL_ROUTE ?>public/assets/js/main.js"></script>
 <script src="<?php echo BASE_URL_ROUTE ?>public/js/main.js"></script>
+<script src="<?php echo BASE_URL_ROUTE ?>public/js/wizard.js"></script>
+
+
+<!-- WIZARDS -->
 
 </body>
 
