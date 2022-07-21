@@ -94,47 +94,113 @@
                             <div class="col-lg-10">
 
 
-                                <form id="form" action="POST" enctype="multipart/form-data">
-                                    <h1>Account</h1>
+                                <form action="<?php echo BASE_URL_ROUTE ?>registerInfringement" id="form" name="form" action="POST" enctype="multipart/form-data" class="php-email-form">
+                                    <h1>0: ¿Nueva persona/vehiculo?</h1>
                                     <fieldset>
-                                        <legend>Account Information</legend>
-
-                                        <label for="userName">User name *</label>
-                                        <input id="userName" name="userName" type="text" class="required" />
-                                        <label for="password">Password *</label>
-                                        <input id="password" name="password" type="text" class="required" />
-                                        <label for="confirm">Confirm Password *</label>
-                                        <input id="confirm" name="confirm" type="text" class="required" />
-                                        <p>(*) Mandatory</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="flexRadioDefault">¿Registrara una nueva persona/vehiculo para la infracción?</label>
+                                                <div class="form-check">
+                                                    <input class="" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required>
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                        Si
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="" type="radio" name="flexRadioDefault" id="flexRadioDefault2" required>
+                                                    <label class="form-check-label" for="flexRadioDefault2">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </fieldset>
 
-                                    <h1>Profile</h1>
+                                    <h1>1: (NO) Registrar infracción (registrando sin nuevos datos)</h1>
                                     <fieldset>
-                                        <legend>Profile Information</legend>
-
-                                        <label for="name">First name *</label>
-                                        <input id="name" name="name" type="text" class="required" />
-                                        <label for="surname">Last name *</label>
-                                        <input id="surname" name="surname" type="text" class="required" />
-                                        <label for="email">Email *</label>
-                                        <input id="email" name="email" type="text" class="required email" />
-                                        <label for="address">Address</label>
-                                        <input id="address" name="address" type="text" />
-                                        <label for="age"
-                                        >Age (The warning step will show up if age is less than 18) *</label
-                                        >
-                                        <input id="age" name="age" type="text" class="required number" />
-                                        <p>(*) Mandatory</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="text" name="motivo" class="form-control" id="motivo" placeholder="Motivo / Descripción" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="number" name="multa" class="form-control" id="multa" placeholder="$ Multa" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="people" class="form-control" id="people" placeholder="Persona" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="vehicle" class="form-control" id="vehicle" placeholder="Vehiculo" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="conditions" class="form-control" id="conditions" placeholder="Estado" />
+                                            </div>
+                                        </div>
                                     </fieldset>
 
-                                    <h1>Warning</h1>
+                                    <h1>2: (SI) Registrar nueva persona</h1>
                                     <fieldset>
-                                        <legend>You are to young</legend>
-
-                                        <p>Please go away ;-)</p>
+                                        <div class="row">
+                                                <div class="col-md-6">
+                                                    <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Nombre" />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" name="paterno" class="form-control" id="paterno" placeholder="Apellido paterno" />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" name="materno" class="form-control" id="materno" placeholder="Apellido materno" />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" name="direccion" class="form-control" id="direccion" placeholder="Dirección" />
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" name="telefono" class="form-control" id="telefono" placeholder="Telefono" />
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" name="edad" class="form-control" id="edad" placeholder="Edad" />
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" name="sexo" class="form-control" id="sexo" placeholder="Sexo" />
+                                                </div>
+                                        </div>
                                     </fieldset>
 
-                                    <h1>Finish</h1>
+                                    <h1>3: (SI) Registrar nuevo vehiculo</h1>
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="text" name="modelo" class="form-control" id="modelo" placeholder="Modelo" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="marca" class="form-control" id="marca" placeholder="Marca" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="textarea" name="descripcion" class="form-control" id="descripcion" placeholder="Descripción" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="no_circulacion" class="form-control" id="no_circulacion" placeholder="No. Circulacion" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="no_licencia" class="form-control" id="no_licencia" placeholder="No. Licencia" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="matricula" class="form-control" id="matricula" placeholder="Matricula" />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                    <h1>4: (SI) Registrar infracción (registrando con nuevos datos)</h1>
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="text" name="motivo" class="form-control" id="motivo" placeholder="Motivo / Descripción" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="number" name="multa" class="form-control" id="multa" placeholder="$ Multa" />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                    <h1>5: (SI)(NO) Finish</h1>
                                     <fieldset>
                                         <legend>Terms and Conditions</legend>
 
@@ -146,6 +212,7 @@
                                         />
                                         <label for="acceptTerms">I agree with the Terms and Conditions.</label>
                                     </fieldset>
+                                    <input type="reset" id="resetBtn" name="resetBtn" hidden />
                                 </form>
 
 
