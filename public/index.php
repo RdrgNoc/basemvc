@@ -60,6 +60,7 @@ $router->register(new Route('/^\/' . BASE_URL . '\/registerVehicle$/', 'VehicleC
 $router->register(new Route('/^\/' . BASE_URL . '\/editVehicle$/', 'VehicleController', 'edit'));
 $router->register(new Route('/^\/' . BASE_URL . '\/registerPeople$/', 'PeopleController', 'registerPeople'));
 $router->register(new Route('/^\/' . BASE_URL . '\/editPeople$/', 'PeopleController', 'edit'));
+$router->register(new Route('/^\/' . BASE_URL . '\/registerInfringement$/', 'InfringementController', 'registerInfringement'));
 
 
 

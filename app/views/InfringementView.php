@@ -1,4 +1,6 @@
-<?php include_once '___header.php'; ?>
+<?php include_once '___header.php';
+    $z = 1;
+?>
     <script>
         $(document).ready(function () {
             var table002 = $('#tableInfringements').DataTable({
@@ -27,7 +29,7 @@
                     <tbody>
                 <?php foreach ($data['infringements'] as $key => $value) { ?>
                     <tr>
-                        <td><?php echo $value['id']; ?></td>
+                        <td><?php echo $z ?></td>
                         <td><?php echo $value['motivo']; ?></td>
                         <td><?php echo $value['multa']; ?></td>
                         <td><?php echo $value['date']; ?></td>
@@ -45,7 +47,7 @@
                             <td><span class="badge bg-secondary"><?php echo $value['conditions']; ?></span></td>
                         <?php } ?>
                     </tr>
-                <?php } ?>
+                <?php $z++; } ?>
                     </tbody>
                     <tfoot>
                     <tr>
@@ -94,20 +96,20 @@
                             <div class="col-lg-10">
 
 
-                                <form action="<?php echo BASE_URL_ROUTE ?>registerInfringement" id="form" name="form" action="POST" enctype="multipart/form-data" class="php-email-form">
+                                <form action="<?php echo BASE_URL_ROUTE ?>registerInfringement" id="form" method="POST" class="php-email-form">
                                     <h1>0: ¿Nueva persona/vehiculo?</h1>
                                     <fieldset>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label for="flexRadioDefault">¿Registrara una nueva persona/vehiculo para la infracción?</label>
                                                 <div class="form-check">
-                                                    <input class="" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required>
+                                                    <input class="" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1" >
                                                     <label class="form-check-label" for="flexRadioDefault1">
                                                         Si
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="" type="radio" name="flexRadioDefault" id="flexRadioDefault2" required>
+                                                    <input class="" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="2" >
                                                     <label class="form-check-label" for="flexRadioDefault2">
                                                         No
                                                     </label>
@@ -120,10 +122,10 @@
                                     <fieldset>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <input type="text" name="motivo" class="form-control" id="motivo" placeholder="Motivo / Descripción" />
+                                                <input type="text" name="motivoNA" class="form-control" id="motivoNA" placeholder="Motivo / Descripción" />
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="number" name="multa" class="form-control" id="multa" placeholder="$ Multa" />
+                                                <input type="number" name="multaNA" class="form-control" id="multaNA" placeholder="$ Multa" />
                                             </div>
                                             <div class="col-md-6">
                                                 <input type="text" name="people" class="form-control" id="people" placeholder="Persona" />
@@ -192,10 +194,10 @@
                                     <fieldset>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <input type="text" name="motivo" class="form-control" id="motivo" placeholder="Motivo / Descripción" />
+                                                <input type="text" name="motivoNF" class="form-control" id="motivoNF" placeholder="Motivo / Descripción" />
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="number" name="multa" class="form-control" id="multa" placeholder="$ Multa" />
+                                                <input type="number" name="multaNF" class="form-control" id="multaNF" placeholder="$ Multa" />
                                             </div>
                                         </div>
                                     </fieldset>
@@ -212,7 +214,6 @@
                                         />
                                         <label for="acceptTerms">I agree with the Terms and Conditions.</label>
                                     </fieldset>
-                                    <input type="reset" id="resetBtn" name="resetBtn" hidden />
                                 </form>
 
 

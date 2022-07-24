@@ -89,6 +89,11 @@ class VehicleModel
 
             if ($success) {
                 $data['message'] = "Se registro el vehiculo";
+                $sql2 = "SELECT * FROM vehicles WHERE id = ?";
+                $paramsDB2 = array(
+                    $id_vehicle
+                );
+                $data['infoReturnVehicle'] = $db->getDataSinglePrepared($sql2, $paramsDB2);
             } else {
                 $data['message'] = "Su registro no se ha realizado con éxito.";
             }

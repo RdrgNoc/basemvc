@@ -85,6 +85,11 @@ class PeopleModel
             $data['success'] = $success;
             if ($success) {
                 $data['message'] = "Se registro la persona";
+                $sql2 = "SELECT * FROM people WHERE id = ?";
+                $paramsDB2 = array(
+                    $id_people
+                );
+                $data['infoReturnPeople'] = $db->getDataSinglePrepared($sql2, $paramsDB2);
             } else {
                 $data['message'] = "Su registro no se ha realizado con éxito.";
             }
