@@ -13,20 +13,20 @@
             <div class="row">
                 <div class="col-12">
                     <?php if (isset($data['displayAllVehicles'])) { ?>
-                        <table id="tableVehicles" class="display" style="width:100%">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Modelo</th>
-                                <th>Marca</th>
-                                <th>Descripción</th>
-                                <th>No. Circulación</th>
-                                <th>No. Licencia</th>
-                                <th>Matricula</th>
-                                <th>Acciones</th>
-                            </tr>
+                        <table id="tableVehicles" class="display table table-hover" style="width:100%">
+                            <thead class="TituloTabla" >
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Modelo</th>
+                                    <th>Marca</th>
+                                    <th>Descripción</th>
+                                    <th>No. Circulación</th>
+                                    <th>No. Licencia</th>
+                                    <th>Matricula</th>
+                                    <th>Acciones</th>
+                                </tr>
                             </thead>
-                                    <tbody>
+                                    <tbody class="CuerpoTabla">
                             <?php foreach ($data['vehicles'] as $key => $value) { ?>
                                 <tr>
                                     <td><?php echo $value['id']; ?></td>
@@ -47,17 +47,17 @@
                                 </tr>
                             <?php } ?>
                                     </tbody>
-                            <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>Modelo</th>
-                                <th>Marca</th>
-                                <th>Descripción</th>
-                                <th>No. Circulación</th>
-                                <th>No. Licencia</th>
-                                <th>Matricula</th>
-                                <th>Acciones</th>
-                            </tr>
+                            <tfoot class="TituloTabla">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Modelo</th>
+                                    <th>Marca</th>
+                                    <th>Descripción</th>
+                                    <th>No. Circulación</th>
+                                    <th>No. Licencia</th>
+                                    <th>Matricula</th>
+                                    <th>Acciones</th>
+                                </tr>
                             </tfoot>
                         </table>
                     <?php } elseif (isset($data['createVehicle']) || isset($data['editVehicle'])) { ?>

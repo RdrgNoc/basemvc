@@ -14,21 +14,21 @@
             <div class="row">
                 <div class="col-12">
                     <?php if (isset($data['displayAllPeoples'])) { ?>
-                        <table id="tablePeoples" class="display" style="width:100%">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Ap. Paterno</th>
-                                <th>Ap. Materno</th>
-                                <th>Edad</th>
-                                <th>Telefono</th>
-                                <th>Dirección</th>
-                                <th>Sexo</th>
-                                <th>Acciones</th>
-                            </tr>
+                        <table id="tablePeoples" class="display table table-hover" style="width:100%">
+                            <thead class="TituloTabla" >
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Ap. Paterno</th>
+                                    <th>Ap. Materno</th>
+                                    <th>Edad</th>
+                                    <th>Telefono</th>
+                                    <th>Dirección</th>
+                                    <th>Sexo</th>
+                                    <th>Acciones</th>
+                                </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="CuerpoTabla">
                             <?php foreach ($data['peoples'] as $key => $value) { ?>
                                 <tr>
                                     <td><?php echo $value['id']; ?></td>
@@ -50,17 +50,17 @@
                                 </tr>
                             <?php } ?>
                             </tbody>
-                            <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Ap. Paterno</th>
-                                <th>Ap. Materno</th>
-                                <th>Edad</th>
-                                <th>Telefono</th>
-                                <th>Dirección</th>
-                                <th>Sexo</th>
-                                <th>Acciones</th>
+                            <tfoot class="TituloTabla">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Ap. Paterno</th>
+                                    <th>Ap. Materno</th>
+                                    <th>Edad</th>
+                                    <th>Telefono</th>
+                                    <th>Dirección</th>
+                                    <th>Sexo</th>
+                                    <th>Acciones</th>
                             </tr>
                             </tfoot>
                         </table>

@@ -86,10 +86,10 @@
           <li><a href="<?php echo BASE_URL_ROUTE ?>welcomeadmin">Inicio</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>log">Logs</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>perfil">Perfil</a></li>
-            <li class="dropdown"><a href="#"><span>Infracciones</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="#"><span>Personas</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
-                    <li><a href="<?php echo BASE_URL_ROUTE ?>ver-infracciones">Listar</a></li>
-                    <li><a href="<?php echo BASE_URL_ROUTE ?>crear-infracciones">Crear</a></li>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>ver-personas">Listar</a></li>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>crear-personas">Crear</a></li>
                 </ul>
             </li>
             <li class="dropdown"><a href="#"><span>Vehiculos</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -98,10 +98,10 @@
                     <li><a href="<?php echo BASE_URL_ROUTE ?>crear-vehiculos">Crear</a></li>
                 </ul>
             </li>
-            <li class="dropdown"><a href="#"><span>Personas</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <li class="dropdown"><a href="#"><span>Infracciones</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
-                    <li><a href="<?php echo BASE_URL_ROUTE ?>ver-personas">Listar</a></li>
-                    <li><a href="<?php echo BASE_URL_ROUTE ?>crear-personas">Crear</a></li>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>ver-infracciones">Listar</a></li>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>crear-infracciones">Crear</a></li>
                 </ul>
             </li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>logout">Salir</a></li>

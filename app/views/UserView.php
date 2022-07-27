@@ -184,51 +184,61 @@ include_once '___header.php';
         <?php
         } else if (isset($data['profile'])) {
         ?>
-        <section id="get-a-quote" class="get-a-quote">
+        <section id="get-a-quote" >
             <div class="container" data-aos="fade-up">
-                <div class="row g-0">
+                <div class="row">
                     <div class="col-lg-12">
-                        <h3>Perfil de usuario</h3>
+                    <div class="" style="background-color: #fff;">
+                    <center><img class=" text-center logo-perfil" width="110" height="105"  src="<?php echo BASE_URL_ROUTE ?>public/img/usuario.png" alt="Logo"></center>
+                        <h3 class="text-center text-title">Usuario: <?php echo $data['info_user']['nickname'] ?></h3>
+                    </div>
+                    <hr>
                         <form action="" method="" class="php-email-form">
-                        <h3>Perfil: <?php echo $data['info_user']['nickname'] ?></h3>
-                            <div class="row gy-4">
+                            <div class="row" >
+                                <div class="col-lg-10 offset-lg-1">
                                 <table class="table">
                                     <tbody>
-                                        <tr>
-                                            <td>Nombre</td>
-                                            <td><?php echo $data['info_user']['name'] ?></td>
+                                        <tr>     
+                                            <td class=" izquierda"> Nombre: </td>
+                                            <td class=""><?php echo $data['info_user']['name'] ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Apellidos</td>
+                                            <td class="izquierda">Apellidos: </td>
                                             <td><?php echo $data['info_user']['surname'] ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Email</td>
+                                            <td class="izquierda">Email: </td>
                                             <td><?php echo $data['info_user']['email'] ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Registrado</td>
+                                            <td class="izquierda">Registrado: </td>
                                             <td><?php echo $data['info_user']['registry_date'] ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Última conexion</td>
+                                            <td class="izquierda">Última conexion: </td>
                                             <td><?php echo $data['info_user']['last_connection'] ?></td>
                                         </tr>
-                                        <!-- <tr>
-                                            <td>Total posts</td>
-                                            <td>0</td>
-                                        </tr> -->
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
-                            <div class="row gy-4">
+                            <br>
+                            <div class="row">
                                 <div class="col-12 text-right">
-                                    <a class="btn btn-warning btn-icon" href="<?php echo BASE_URL_ROUTE ?>editar-perfil-form">
-                                        <i class="fa fa-pencil" aria-hidden="true"></i> Editar perfil
-                                    </a>
-                                    <a class="btn btn-dark btn-icon" href="<?php echo BASE_URL_ROUTE ?>editar-password-form">
-                                        <i class="fa fa-key" aria-hidden="true"></i></i> Cambiar contraseña
-                                    </a>
+                                    <div class="row"> 
+                                        <div class="col-4 offset-2">
+                                            <a class="btn btn-warning btn-icon editar" href="<?php echo BASE_URL_ROUTE ?>editar-perfil-form">
+                                                <i class="fa fa-pencil " aria-hidden="true"></i> Editar perfil
+                                            </a>
+                                        </div>
+                                        <div class="col-4">
+                                        <a class="btn btn-secondary btn-icon cambiar" href="<?php echo BASE_URL_ROUTE ?>editar-password-form">
+                                            <i class="fa fa-key" aria-hidden="true"></i></i> Cambiar contraseña
+                                        </a>
+                                        </div>
+                                    </div>
+                                    
+                                    
                                     <?php
                                     if ($data['info_user']['rol'] != 1) {
                                     ?>

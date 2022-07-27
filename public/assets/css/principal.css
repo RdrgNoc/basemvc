@@ -38,3 +38,40 @@ label{
 .espacio{
 	padding-top: 10px;
 }
+
+
+.editar{
+	background-color: #e9e241;
+}
+
+.cambiar{
+	background-color: #89c156;
+}
+
+hr{
+	height: 4px;
+	background-color: #024f61;
+}
+
+h3 .text-title{
+	color: #e9e241;
+}
+
+.izquierda{
+	text-align:  right;
+	font-weight: bolder; 
+	color: #024f61;
+}
+
+ .TituloTabla{
+	text-align:  center;
+	font-weight: bolder; 
+	color: #fff;
+	background-color: #024f61; 
+	font-size: 18px;
+}
+
+
+ .CuerpoTabla{
+	text-align:  center;
+}

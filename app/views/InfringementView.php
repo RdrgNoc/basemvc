@@ -14,19 +14,19 @@
         <div class="row">
             <div class="col-12">
             <?php if (isset($data['displayAllInfringements'])) { ?>
-                <table id="tableInfringements" class="display" style="width:100%">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Motivo</th>
-                        <th>Monto</th>
-                        <th>Fecha</th>
-                        <th>Persona</th>
-                        <th>Vehiculo</th>
-                        <th>Estado</th>
-                    </tr>
+                <table id="tableInfringements" class="display table table-hover" style="width:100%">
+                    <thead class="TituloTabla">
+                        <tr>
+                            <th>ID</th>
+                            <th>Motivo</th>
+                            <th>Monto</th>
+                            <th>Fecha</th>
+                            <th>Persona</th>
+                            <th>Vehiculo</th>
+                            <th>Estado</th>
+                        </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="CuerpoTabla">
                 <?php foreach ($data['infringements'] as $key => $value) { ?>
                     <tr>
                         <td><?php echo $z ?></td>
@@ -49,16 +49,16 @@
                     </tr>
                 <?php $z++; } ?>
                     </tbody>
-                    <tfoot>
-                    <tr>
-                        <th>ID</th>
-                        <th>Motivo</th>
-                        <th>Monto</th>
-                        <th>Fecha</th>
-                        <th>Persona</th>
-                        <th>Vehiculo</th>
-                        <th>Estado</th>
-                    </tr>
+                    <tfoot class="TituloTabla">
+                        <tr>
+                            <th>ID</th>
+                            <th>Motivo</th>
+                            <th>Monto</th>
+                            <th>Fecha</th>
+                            <th>Persona</th>
+                            <th>Vehiculo</th>
+                            <th>Estado</th>
+                        </tr>
                     </tfoot>
                 </table>
             <?php } elseif(isset($data['displayCreateInfringements'])) { ?>
