@@ -10,7 +10,6 @@
         <a href="#" class="logo d-flex align-items-center">
           <span>Infracciones</span>
         </a>
-        <p>Infracciones test</p>
       </div>
     </div>
   </div>

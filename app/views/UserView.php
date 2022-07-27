@@ -3,127 +3,150 @@
 include_once '___header.php';
 
 ?>
-
-
+<div class="container">
 <div class="row">
-    <div class="col-12">
+    <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
         <?php
         if (isset($data['registry']) || isset($data['edit_profile'])) {
         ?>
-        <section id="get-a-quote" class="get-a-quote">
-      <div class="container" data-aos="fade-up">
-        <div class="row g-0">
-          <div class="col-lg-12">
-            <form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['registry']) ? 'register' : 'editar-perfil'; ?>" method="POST" class="php-email-form">
-            <?php
-                if (isset($data['edit_profile'])) {
-                ?>
-                    <input type="hidden" name="id_user" value="<?php echo $data['info_user']['id']; ?>" />
-                    <input type="hidden" name="rol" value="<?php echo $data['info_user']['rol']; ?>" />
-                <?php
-                }
-            ?>  
-            <h3>Registrarse</h3>
-              <div class="row gy-4">
-                <div class="col-md-6">
-                    <input type="text" 
-                            name="name" 
-                            class="form-control" 
-                            id="name" 
-                            maxlength="20" 
-                            value="<?php if (isset($data['info_user'])) {echo $data['info_user']['name'];} ?>" 
-                            placeholder="Nombre" 
-                    />
-                </div>
-
-                <div class="col-md-6">
-                    <input type="text" 
-                            name="surname" 
-                            class="form-control" 
-                            id="surname" 
-                            maxlength="30" 
-                            value="<?php if (isset($data['info_user'])) {echo $data['info_user']['surname'];} ?>"
-                            placeholder="Apellidos" 
-                    />
-                </div>
-                <div class="col-md-6">
-                    <input type="text" 
-                            name="nickname" 
-                            class="form-control" 
-                            id="nickname" 
-                            maxlength="40" 
-                            value="<?php if (isset($data['info_user'])) {echo $data['info_user']['nickname'];} ?>"
-                            placeholder="Nombre de usuario"
-                    />
-                </div>
-                <div class="col-md-6">
-                    <input type="text" 
-                            name="email" 
-                            <?php isset($data['edit_profile']) ? 'readonly' : '' ?> 
-                            class="form-control" 
-                            id="email" 
-                            maxlength="40" 
-                            value="<?php if (isset($data['info_user'])) {echo $data['info_user']['email'];} ?>"
-                            placeholder="Correo"
-                    />
-                        <div class="valid-feedback">
-                            ¡Es correcto!
-                        </div>
-                        <div class="invalid-feedback">
-                            El email no tiene el formato correcto
-                        </div>
-                </div>
-                <?php
-                if (isset($data['registry'])) {
-                ?>
-                <div class="col-md-6">
-                    <input type="password" 
-                            id="password" 
-                            name="pass" 
-                            class="form-control" }
-                            maxlength="20" 
-                            placeholder="Contraseña"
-                    />
-                            <div class="valid-feedback">
-                                ¡Es correcto!
-                            </div>
-                            <div class="invalid-feedback">
-                                La contraseña debe tener minusculas, mayusculas y numeros. La longitud entre 8 y 20 caracteres
-                            </div>
-                </div>
-
-                <div class="col-md-6">
-                    <input type="password" 
-                            name="confirm-pass" 
-                            class="form-control" 
-                            id="confirm-pass" 
-                            maxlength="20" 
-                            placeholder="Confirmar contraseña"
-                    />
-                </div>
-                <?php
-                }
-                ?>
-                <div class="col-md-12 text-center">
-                    <button type="submit" name="action" class="btn btn-primary btn-block"><?php echo isset($data['registry']) ? 'Registro' : 'Editar'; ?></button>
-                </div>
-                <?php
-                
-                if (isset($data['registry'])) {
-                ?>
-                    <div class="col-d-12">
-                        <a href="<?php echo BASE_URL_ROUTE ?>verificacion-form">¿Ya te has registrado y no te ha llegado el correo de activación? Pulsa aquí para reenviar correo.</a>
-                    </div>
-                <?php
-                }
-                ?>
-
-              </div>
-            </form>
-          </div><!-- End Quote Form -->
+    <div id="get-a-quote" class="card border-0 shadow rounded-3 my-5">
+        <div class="card-header">
+            <img class="card-img-top" src="<?php echo BASE_URL_ROUTE ?>public/img/logo3.png" alt="Tlanchinol">
         </div>
-      </div>
-    </section><!-- End Get a Quote Section -->
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="card-body p-4 p-sm-12">
+                    <form form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['registry']) ? 'register' : 'editar-perfil'; ?>" method="POST" class="php-email-form">
+                        <?php
+                            if (isset($data['edit_profile'])) {
+                            ?>
+                                <input type="hidden" name="id_user" value="<?php echo $data['info_user']['id']; ?>" />
+                                <input type="hidden" name="rol" value="<?php echo $data['info_user']['rol']; ?>" />
+                            <?php
+                            }
+                        ?>  
+                        <h3 class="card-title text-center inicio">Registro</h3>
+                        <div class="row form-floating ">
+                            <div class="col-md-12 espacio">
+                                <div class="row espacio">
+                                <div class="col-md-5 form-floating">
+                                <input type="text" 
+                                name="name" 
+                                class="form-control espacio" 
+                                id="name" 
+                                maxlength="20" 
+                                value="<?php if (isset($data['info_user'])) {echo $data['info_user']['name'];} ?>" 
+                                placeholder="Nombre" />
+                                <label for="floatingInput"> Nombre(s): </label>
+                            </div>
+                            <div class="col-md-7 form-floating">
+                                <input type="text" 
+                                        name="surname" 
+                                        class="form-control espacio" 
+                                        id="surname" 
+                                        maxlength="30" 
+                                        value="<?php if (isset($data['info_user'])) {echo $data['info_user']['surname'];} ?>"
+                                        placeholder="Apellidos" />
+                                <label for="floatingInput"> Apellidos: </label>
+                            </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 espacio">
+                                <div class="row espacio">
+                                <div class="col-md-5 form-floating">
+                                <input type="text" 
+                                        name="nickname" 
+                                        class="form-control" 
+                                        id="nickname" 
+                                        maxlength="40" 
+                                        value="<?php if (isset($data['info_user'])) {echo $data['info_user']['nickname'];} ?>"
+                                        placeholder="Nombre de usuario"/>
+                                <label for="floatingInput"> Nombre de ususario: </label>
+                            </div>
+                            <div class="col-md-7 form-floating">
+                                <input type="text" 
+                                        name="email" 
+                                        <?php isset($data['edit_profile']) ? 'readonly' : '' ?> 
+                                        class="form-control" 
+                                        id="email" 
+                                        maxlength="40" 
+                                        value="<?php if (isset($data['info_user'])) {echo $data['info_user']['email'];} ?>"
+                                        placeholder="Correo"/>
+                                        <label for="floatingInput"> Correo: </label>
+                                <div class="valid-feedback">
+                                    ¡Es correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    El email no tiene el formato correcto
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        <?php
+                        if (isset($data['registry'])) {
+                        ?>
+
+                            <div class="col-md-12 espacio">
+                                <div class="row espacio">
+                                <div class="col-md-6 form-floating">
+                                <input type="password" 
+                                        id="password" 
+                                        name="pass" 
+                                        class="form-control" }
+                                        maxlength="20" 
+                                        placeholder="Contraseña"/>
+                                        <label for="floatingInput"> Contraseña: </label>
+                                <div class="valid-feedback">
+                                    ¡Es correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                    La contraseña debe tener minusculas, mayusculas y numeros. La longitud entre 8 y 20 caracteres
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-md-6 form-floating">
+                                <input type="password" 
+                                        name="confirm-pass" 
+                                        class="form-control" 
+                                        id="confirm-pass" 
+                                        maxlength="20" 
+                                        placeholder="Confirmar contraseña"/>
+                                <label for="floatingInput"> Confirmar contraseña: </label>
+                            </div>
+                                </div>
+                            </div>
+                            <?php
+                            }
+                            ?>
+                            <div class="col-md-12 text-center">
+                                <button type="submit" name="action" class="btn btn-login text-uppercase btn-block fw-bold acceder"><?php echo isset($data['registry']) ? 'Registrarse' : 'Editar'; ?></button>
+                            </div>
+                            <?php
+                            
+                            if (isset($data['registry'])) {
+                            ?>
+                            <div class="col-d-12 link">
+                                <a class="link" href="<?php echo BASE_URL_ROUTE ?>verificacion-form">¿Ya te has registrado y no te ha llegado el correo de activación? Pulsa aquí para reenviar correo.</a>
+                            </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </form>
+                </div><!-- End Quote Form -->
+            </div>
+        </div>
+    </div><!-- End Get a Quote Section -->
+
+
+
+
+
+
+
+    
         <?php
         } else if (isset($data['form_verification'])) {
         ?>
@@ -291,7 +314,7 @@ include_once '___header.php';
     </div>
 </div>
 
-
+    </div>
 
 <?php
 

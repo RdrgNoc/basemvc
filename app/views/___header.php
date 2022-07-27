@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>MVC</title>
+  <title>Infracciones Tlanchinol</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -37,6 +37,9 @@
   <!-- Template Main CSS File -->
   <link href="<?php echo BASE_URL_ROUTE ?>public/assets/css/main.css" rel="stylesheet">
 
+  <link href="<?php echo BASE_URL_ROUTE ?>public/assets/css/principal.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/cr-1.5.6/fc-4.1.0/r-2.3.0/rr-1.2.8/sl-1.4.0/datatables.min.css"/>
 
@@ -52,7 +55,11 @@
       <a href="<?php echo BASE_URL_ROUTE ?>" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Infracciones</h1>
+        <img src="public/img/letras1.png" alt="">
+        <div class="container justify-content-center">
+        </div>
+        
+        
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -107,7 +114,7 @@
       ?>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="<?php echo BASE_URL_ROUTE ?>welcome">Inicio</a></li>
+          <li><a href="<?php echo BASE_URL_ROUTE ?>welcome"> Inicio</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>register-form">Sign up</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>login-form">Login</a></li>
         </ul>
@@ -122,15 +129,7 @@
   <main id="main">
   <!-- ======= Breadcrumbs ======= -->
   <div class="breadcrumbs">
-      <div class="page-header d-flex align-items-center" style="background-image: url('assets/img/page-header.jpg');">
-        <div class="container position-relative">
-          <div class="row d-flex justify-content-center">
-            <div class="col-lg-6 text-center">
-              <h2>CASC</h2>
-              <p>Cascaron</p>
-            </div>
-          </div>
-        </div>
+      <div class="page-header d-flex align-items-center" style="background-image: url('public/img/hidalgo.jpg');">
       </div>
     </div><!-- End Breadcrumbs -->
     <?php include_once "___messages.php"; ?>
