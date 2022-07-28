@@ -5,11 +5,11 @@ include_once '___header.php';
 ?>
 <div class="container">
 <div class="row">
-    <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+    <div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
         <?php
         if (isset($data['registry']) || isset($data['edit_profile'])) {
         ?>
-    <div id="get-a-quote" class="card border-0 shadow rounded-3 my-5">
+    <div id="get-a-quote" class="card border-0 shadow rounded-1 my-5">
         <div class="card-header">
             <img class="card-img-top" src="<?php echo BASE_URL_ROUTE ?>public/img/logo3.png" alt="Tlanchinol">
         </div>
@@ -226,13 +226,13 @@ include_once '___header.php';
                             <div class="row">
                                 <div class="col-12 text-right">
                                     <div class="row"> 
-                                        <div class="col-4 offset-2">
-                                            <a class="btn btn-warning btn-icon editar" href="<?php echo BASE_URL_ROUTE ?>editar-perfil-form">
+                                        <div class="col-lg-5 offset-lg-1">
+                                            <a class="btn btn-login btn-icon editar" href="<?php echo BASE_URL_ROUTE ?>editar-perfil-form">
                                                 <i class="fa fa-pencil " aria-hidden="true"></i> Editar perfil
                                             </a>
                                         </div>
-                                        <div class="col-4">
-                                        <a class="btn btn-secondary btn-icon cambiar" href="<?php echo BASE_URL_ROUTE ?>editar-password-form">
+                                        <div class="col-6">
+                                        <a class="btn btn-login btn-icon cambiar" href="<?php echo BASE_URL_ROUTE ?>editar-password-form">
                                             <i class="fa fa-key" aria-hidden="true"></i></i> Cambiar contraseña
                                         </a>
                                         </div>

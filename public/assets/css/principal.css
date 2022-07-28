@@ -41,11 +41,23 @@ label{
 
 
 .editar{
-	background-color: #e9e241;
+	background-color: #0f1e36;
+	color: #fff;
+}
+
+.editar:hover{
+	background-color: #fff;
+	color: #0f1e36;
+}
+
+.cambiar:hover{
+	background-color: #fff;
+	color: #41464e;
 }
 
 .cambiar{
-	background-color: #89c156;
+	background-color: #41464e;
+	color: #fff;
 }
 
 hr{
@@ -67,7 +79,7 @@ h3 .text-title{
 	text-align:  center;
 	font-weight: bolder; 
 	color: #fff;
-	background-color: #024f61; 
+	background-color: #0f1e36; 
 	font-size: 18px;
 }
 
@@ -75,3 +87,12 @@ h3 .text-title{
  .CuerpoTabla{
 	text-align:  center;
 }
+
+
+#titulos{
+	text-align:  center;
+	font-weight: bolder; 
+	color: #024f61;
+	font-size: 24px;
+}
+

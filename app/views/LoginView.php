@@ -4,13 +4,13 @@ if (isset($data['display_login'])) {
 ?>
 <div class="container">
     <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
-            <div class="card border-0 shadow rounded-3 my-5">
-                <div class="card-header">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="panel border-0 shadow rounded-3 my-5">
+                <div class="panel-heading">
                     <img class="card-img-top" src="<?php echo BASE_URL_ROUTE ?>public/img/logo3.png" alt="Tlanchinol">
                 </div>
-                <div class="card-body p-4 p-sm-8">
-                    <h3 class="card-title text-center inicio">Inicio de sesión</h3>
+                <div class="panel-body p-4 p-sm-8">
+                    <h3 class="panel-title text-center inicio">Inicio de sesión</h3>
                     <br>
                     <form action="<?php echo BASE_URL_ROUTE ?>login" method="POST" class="php-email-form">
                         <div class="form-floating mb-3">
