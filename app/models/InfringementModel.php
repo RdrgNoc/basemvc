@@ -115,4 +115,67 @@ class InfringementModel
         $db->close();
         return $data;
     }
+    public function getAllVehiclesInput(): array
+    {
+        $db = new PDODB();
+        $data = array();
+        $paramsDB = array();
+        try {
+            $sql = "SELECT * FROM vehicles";
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "InfringementModel/getAllVehiclesInput", $sql);
+                writeLog(INFO_LOG, "InfringementModel/getAllVehiclesInput", json_encode($paramsDB));
+            }
+            $data = $db->getDataPrepared($sql, $paramsDB);
+        } catch (Exception $e) {
+            $data['show_message_info'] = true;
+            $data['success'] = false;
+            $data['message'] = ERROR_GENERAL;
+            writeLog(ERROR_LOG, "InfringementModel/getAllVehiclesInput", $e->getMessage());
+        }
+        $db->close();
+        return $data;
+    }
+    public function getAllPeoplesInput(): array
+    {
+        $db = new PDODB();
+        $data = array();
+        $paramsDB = array();
+        try {
+            $sql = "SELECT * FROM people";
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "InfringementModel/getAllPeoplesInput", $sql);
+                writeLog(INFO_LOG, "InfringementModel/getAllPeoplesInput", json_encode($paramsDB));
+            }
+            $data = $db->getDataPrepared($sql, $paramsDB);
+        } catch (Exception $e) {
+            $data['show_message_info'] = true;
+            $data['success'] = false;
+            $data['message'] = ERROR_GENERAL;
+            writeLog(ERROR_LOG, "InfringementModel/getAllPeoplesInput", $e->getMessage());
+        }
+        $db->close();
+        return $data;
+    }
+    public function getAllConditionsInput()
+    {
+        $db = new PDODB();
+        $data = array();
+        $paramsDB = array();
+        try {
+            $sql = "SELECT * FROM conditions";
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "InfringementModel/getAllConditionsInput", $sql);
+                writeLog(INFO_LOG, "InfringementModel/getAllConditionsInput", json_encode($paramsDB));
+            }
+            $data = $db->getDataPrepared($sql, $paramsDB);
+        } catch (Exception $e) {
+            $data['show_message_info'] = true;
+            $data['success'] = false;
+            $data['message'] = ERROR_GENERAL;
+            writeLog(ERROR_LOG, "InfringementModel/getAllConditionsInput", $e->getMessage());
+        }
+        $db->close();
+        return $data;
+    }
 }

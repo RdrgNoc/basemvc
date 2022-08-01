@@ -1,5 +1,6 @@
 <?php include_once '___header.php';
     $z = 1;
+    $x = 1;
 ?>
     <script>
         $(document).ready(function () {
@@ -128,13 +129,30 @@
                                                 <input type="number" name="multaNA" class="form-control" id="multaNA" placeholder="$ Multa" />
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" name="people" class="form-control" id="people" placeholder="Persona" />
+                                                <!--<input type="text" name="people" class="form-control" id="people" placeholder="Persona" />-->
+                                                <input class="form-control" list="datalistOptions1" name="people" id="people" placeholder="Persona">
+                                                <datalist id="datalistOptions1">
+                                                    <?php foreach ($data['peoplesInput'] as $key => $people) { ?>
+                                                        <option value="<?php echo $people['id']; ?>" ><?php echo $people['nombre'] . " " . $people['paterno'] . " " . $people['materno']; ?></option>
+                                                        <?php $x++; } ?>
+                                                </datalist>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" name="vehicle" class="form-control" id="vehicle" placeholder="Vehiculo" />
+                                                <!--<input type="text" name="vehicle" class="form-control" id="vehicle" placeholder="Vehiculo" />-->
+                                                <input class="form-control" list="datalistOptions2" name="vehicle" id="vehicle" placeholder="Vehiculo">
+                                                <datalist id="datalistOptions2">
+                                                    <?php foreach ($data['vehiclesInput'] as $key => $vehicle) { ?>
+                                                        <option value="<?php echo $vehicle['id']; ?>" ><?php echo $vehicle['modelo']; ?></option>
+                                                    <?php $x++; } ?>
+                                                </datalist>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" name="conditions" class="form-control" id="conditions" placeholder="Estado" />
+                                                <input class="form-control" list="datalistOptions3" name="conditions" id="conditions" placeholder="Estado">
+                                                <datalist id="datalistOptions3">
+                                                    <?php foreach ($data['conditionsInput'] as $key => $condition) { ?>
+                                                        <option value="<?php echo $condition['id']; ?>" ><?php echo $condition['conditions']; ?></option>
+                                                        <?php $x++; } ?>
+                                                </datalist>
                                             </div>
                                         </div>
                                     </fieldset>

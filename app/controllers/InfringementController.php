@@ -27,6 +27,9 @@ class InfringementController extends Controller
     public function create(){
         isLogged();
         $data = array();
+        $data['peoplesInput'] = $this->model->getAllPeoplesInput();
+        $data['vehiclesInput'] = $this->model->getAllVehiclesInput();
+        $data['conditionsInput'] = $this->model->getAllConditionsInput();
         $data['displayCreateInfringements'] = true;
         $this->view("InfringementView", $data);
     }
@@ -97,19 +100,21 @@ class InfringementController extends Controller
                 if (isset($dataVehicle['infoReturnVehicle'])) {
                     $newIDV = $dataVehicle['infoReturnVehicle']['id'];
                 }
-                
-                $paramsInfringement = array(
-                    'opcion' => $radOpc,
-                    'motivo' => $_POST['motivoNF'],
-                    'multa' => $_POST['multaNF'],
-                    'date' => $date,
-                    'people' => $newIDP,
-                    'vehicle' => $newIDV,
-                    'conditions' => 1,
-                );
 
+                if (empty($newIDP) && empty($newIDV)) {
+
+                } else {
+                    $paramsInfringement = array(
+                        'opcion' => $radOpc,
+                        'motivo' => $_POST['motivoNF'],
+                        'multa' => $_POST['multaNF'],
+                        'date' => $date,
+                        'people' => $newIDP,
+                        'vehicle' => $newIDV,
+                        'conditions' => 1,
+                    );
+                }
                 $errorsInfringement = $this->model->checkErrors($paramsInfringement);
-
                 if (count($errorsInfringement) === 0) {
                     $paramsInfringement = array(
                         'opcion' => $radOpc,
