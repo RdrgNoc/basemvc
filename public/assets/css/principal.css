@@ -37,6 +37,8 @@ label{
 
 .espacio{
 	padding-top: 10px;
+	border-radius: none;
+	
 }
 
 
@@ -96,3 +98,17 @@ h3 .text-title{
 	font-size: 24px;
 }
 
+
+.panel-body{
+	font-size: 1rem;
+}
+
+.card{
+	border-radius: none;
+	border:none;
+}
+
+.espacio-derecho{
+	margin-right: 25px;
+	padding-right: 25px;
+}

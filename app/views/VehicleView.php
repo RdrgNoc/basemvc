@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-12">
                     <?php if (isset($data['displayAllVehicles'])) { ?>
-                        <table id="tableVehicles" class="display table table-hover" style="width:100%">
+                        <table id="tableVehicles" class="display table table-hover" style="width:100%;" >
                             <thead class="TituloTabla" >
                                 <tr>
                                     <th>ID</th>
@@ -62,16 +62,14 @@
                         </table>
                     <?php } elseif (isset($data['createVehicle']) || isset($data['editVehicle'])) { ?>
                         <div class="row">
-                            <div class="col-lg-12 ">
-                            <form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['createVehicle']) ? 'registerVehicle' : 'editVehicle'; ?>" method="POST" class="php-email-form shadow rounded-1 my-5" style="background-color: #b1bcc6; ">
-                            <div class="panel panel-default">
-                            <br>
+                            <div class="">
+                            <form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['createVehicle']) ? 'registerVehicle' : 'editVehicle'; ?>" method="POST" class="php-email-form sborder-0 shadow col-md-10 offset-md-1" style="background-color: #b1bcc6; ">
+                            <div class="panel panel-default p-sm-2">
                             <div class="panel-heading text-center" id="titulos">
                                 <h3 id="titulos">Registrar nuevo vehículo</h3>
-                                
                                 <hr>
                             </div>
-                            <br><br>
+                            <br>
                                 <?php
                                 if (isset($data['editVehicle'])) {
                                     ?>
@@ -80,27 +78,27 @@
                                 }
                                 ?>
                                 <div class="row gy-4 panel-body">
-                                    <div class="col-md-6 form-floating mb-3">
+                                    <div class="col-md-6 form-floating" >
                                         <input type="text" name="modelo" class="form-control" id="modelo" value="<?php if (isset($data['info_vehicle'])) {echo $data['info_vehicle']['modelo'];} ?>" placeholder="Modelo" />
                                         <label for="floatingInput"> Modelo:</label>
                                     </div>
-                                    <div class="col-md-6 form-floating mb-3">
+                                    <div class="col-md-6 form-floating">
                                         <input type="text" name="marca" class="form-control" id="marca" value="<?php if (isset($data['info_vehicle'])) {echo $data['info_vehicle']['marca'];} ?>" placeholder="Marca" />
                                         <label for="floatingInput"> Marca:</label>
                                     </div>
-                                    <div class="col-md-6 form-floating mb-3">
+                                    <div class="col-md-6 form-floating">
                                         <input type="textarea" name="descripcion" class="form-control" id="descripcion" value="<?php if (isset($data['info_vehicle'])) {echo $data['info_vehicle']['descripcion'];} ?>" placeholder="Descripción" />
                                         <label for="floatingInput"> Descripción:</label>
                                     </div>
-                                    <div class="col-md-6 form-floating mb-3">
+                                    <div class="col-md-6 form-floating">
                                         <input type="text" name="no_circulacion" class="form-control" id="no_circulacion" value="<?php if (isset($data['info_vehicle'])) {echo $data['info_vehicle']['no_circulacion'];} ?>" placeholder="No. Circulacion" />
                                         <label for="floatingInput"> No. Circulación:</label>
                                     </div>
-                                    <div class="col-md-6 form-floating mb-3">
+                                    <div class="col-md-6 form-floating">
                                         <input type="text" name="no_licencia" class="form-control" id="no_licencia" value="<?php if (isset($data['info_vehicle'])) {echo $data['info_vehicle']['no_licencia'];} ?>" placeholder="No. Licencia" />
                                         <label for="floatingInput"> No. Licencia:</label>
                                     </div>
-                                    <div class="col-md-6 form-floating mb-3">
+                                    <div class="col-md-6 form-floating">
                                         <input type="text" name="matricula" class="form-control" id="matricula" value="<?php if (isset($data['info_vehicle'])) {echo $data['info_vehicle']['matricula'];} ?>" placeholder="Matricula" />
                                         <label for="floatingInput"> Matricula:</label>
                                     </div>

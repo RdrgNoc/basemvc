@@ -320,7 +320,7 @@ section {
 --------------------------------------------------------------*/
 @media (min-width: 1280px) {
   .navbar {
-    padding: 0;
+    padding-top: 20px;
   }
 
   .navbar ul {
@@ -342,8 +342,8 @@ section {
     justify-content: space-between;
     padding: 10px 0 10px 30px;
     font-family: var(--font-primary);
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 17px;
+    font-weight: 500;
     color: rgba(255, 255, 255, 0.6);
     white-space: nowrap;
     transition: 0.3s;
@@ -365,17 +365,18 @@ section {
 
   .navbar .get-a-quote,
   .navbar .get-a-quote:focus {
-    background: var(--color-primary);
+    background: #0e1b2e;
     padding: 8px 20px;
     margin-left: 30px;
-    border-radius: 4px;
     color: #fff;
+    text-align:  right;
+    font-weight: bolder;
   }
 
   .navbar .get-a-quote:hover,
   .navbar .get-a-quote:focus:hover {
     color: #fff;
-    background: #2756ff;
+    background: #41464e;
   }
 
   .navbar .dropdown ul {
@@ -389,21 +390,21 @@ section {
     opacity: 0;
     visibility: hidden;
     background: #fff;
-    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    box-shadow: 0px 0px 60px rgba(127, 137, 161, 0.25);
     transition: 0.3s;
-    border-radius: 4px;
   }
 
   .navbar .dropdown ul li {
-    min-width: 200px;
+    min-width: 180px;
   }
 
   .navbar .dropdown ul a {
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 16px;
     text-transform: none;
     font-weight: 400;
-    color: var(--color-secondary);
+    color: #0e1b2e;
+    font-weight: bolder;
   }
 
   .navbar .dropdown ul a i {
@@ -413,7 +414,7 @@ section {
   .navbar .dropdown ul a:hover,
   .navbar .dropdown ul .active:hover,
   .navbar .dropdown ul li:hover>a {
-    color: var(--color-primary);
+    color: #a0a0a0;
   }
 
   .navbar .dropdown:hover>ul {

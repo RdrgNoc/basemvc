@@ -50,7 +50,7 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+    <div class="container-fluid  d-flex align-items-center justify-content-between">
 
       <a href="<?php echo BASE_URL_ROUTE ?>" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
@@ -105,7 +105,7 @@
                 </ul>
             </li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>logout">Salir</a></li>
-          <li><a class="get-a-quote" href="#">¡Hola admin! <?php echo $nickname; ?></a></li>
+          <li><a class="get-a-quote" href="<?php echo BASE_URL_ROUTE ?>perfil">¡Hola <?php echo $nickname; ?>!</a></li>
         </ul>
       </nav><!-- .navbar -->
       <?php        
@@ -117,6 +117,7 @@
           <li><a href="<?php echo BASE_URL_ROUTE ?>welcome"> Inicio</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>register-form">Sign up</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>login-form">Login</a></li>
+          <li class="espacio-derecho"></li>
         </ul>
       </nav><!-- .navbar -->
       <?php

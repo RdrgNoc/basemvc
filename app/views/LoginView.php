@@ -4,7 +4,7 @@ if (isset($data['display_login'])) {
 ?>
 <div class="container">
     <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="col-sm-9 col-md-7 col-lg-7 mx-auto">
             <div class="panel border-0 shadow rounded-3 my-5">
                 <div class="panel-heading">
                     <img class="card-img-top" src="<?php echo BASE_URL_ROUTE ?>public/img/logo3.png" alt="Tlanchinol">
@@ -15,11 +15,11 @@ if (isset($data['display_login'])) {
                     <form action="<?php echo BASE_URL_ROUTE ?>login" method="POST" class="php-email-form">
                         <div class="form-floating mb-3">
                             <input type="text" name="nick_email" id="nick_email" class="form-control " placeholder="Nombre de usuario o correo" required>
-                            <label for="floatingInput"><i class="bi bi-person-circle"></i>  Nombre de usuario o correo </label>
+                            <label for="floatingInput"><i class="bi bi-person-circle"></i>  Nombre de usuario o correo: </label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="password" name="pass" class="form-control" placeholder="Contraseña" required>
-                            <label for="floatingPassword"> <i class="bi bi-lock-fill"></i> Contraseña</label>
+                            <label for="floatingPassword"> <i class="bi bi-lock-fill"></i> Contraseña: </label>
                         </div>
                         <div class="form-check mb-12">
                             <center><a href="<?php echo BASE_URL_ROUTE ?>remember-form">¿Has olvidado la contraseña?</a> <i class="bi bi-question-circle"></i></center> 

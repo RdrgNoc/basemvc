@@ -5,18 +5,18 @@ include_once '___header.php';
 ?>
 <div class="container">
 <div class="row">
-    <div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
+    <div class="col-sm-9 col-md-7 col-lg-7 mx-auto">
         <?php
         if (isset($data['registry']) || isset($data['edit_profile'])) {
         ?>
-    <div id="get-a-quote" class="card border-0 shadow rounded-1 my-5">
-        <div class="card-header">
+    <div id="get-a-quote" class="panel panel-default border-0 shadow rounded-1 my-5">
+        <div class="panel-heading">
             <img class="card-img-top" src="<?php echo BASE_URL_ROUTE ?>public/img/logo3.png" alt="Tlanchinol">
         </div>
         <div class="container" data-aos="fade-up">
             <div class="row">
-                <div class="card-body p-4 p-sm-12">
-                    <form form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['registry']) ? 'register' : 'editar-perfil'; ?>" method="POST" class="php-email-form">
+                <div class="panel-body p-4 p-sm-12">
+                    <form  id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['registry']) ? 'register' : 'editar-perfil'; ?>" method="POST" class="php-email-form">
                         <?php
                             if (isset($data['edit_profile'])) {
                             ?>
@@ -25,7 +25,7 @@ include_once '___header.php';
                             <?php
                             }
                         ?>  
-                        <h3 class="card-title text-center inicio">Registro</h3>
+                        <h3 class="panel-title text-center inicio">Registro</h3>
                         <div class="row form-floating ">
                             <div class="col-md-12 espacio">
                                 <div class="row espacio">
@@ -62,7 +62,7 @@ include_once '___header.php';
                                         maxlength="40" 
                                         value="<?php if (isset($data['info_user'])) {echo $data['info_user']['nickname'];} ?>"
                                         placeholder="Nombre de usuario"/>
-                                <label for="floatingInput"> Nombre de ususario: </label>
+                                <label for="floatingInput">Usuario: </label>
                             </div>
                             <div class="col-md-7 form-floating">
                                 <input type="text" 
@@ -185,16 +185,16 @@ include_once '___header.php';
         } else if (isset($data['profile'])) {
         ?>
         <section id="get-a-quote" >
-            <div class="container" data-aos="fade-up">
-                <div class="row">
-                    <div class="col-lg-12">
+            <div class="container panel" data-aos="fade-up">
+                <div class="row panel panel-default">
+                    <div class="col-lg-12 panel-body">
                     <div class="" style="background-color: #fff;">
                     <center><img class=" text-center logo-perfil" width="110" height="105"  src="<?php echo BASE_URL_ROUTE ?>public/img/usuario.png" alt="Logo"></center>
                         <h3 class="text-center text-title">Usuario: <?php echo $data['info_user']['nickname'] ?></h3>
                     </div>
                     <hr>
                         <form action="" method="" class="php-email-form">
-                            <div class="row" >
+                            <div class="row panel-body">
                                 <div class="col-lg-10 offset-lg-1">
                                 <table class="table">
                                     <tbody>

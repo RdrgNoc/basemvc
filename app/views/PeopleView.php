@@ -65,14 +65,13 @@
                             </tfoot>
                         </table>
                     <?php } elseif (isset($data['createPeople']) || isset($data['editPeople'])) { ?>
-                        <form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['createPeople']) ? 'registerPeople' : 'editPeople'; ?>" method="POST" class="php-email-form shadow rounded-1 my-5" style="background-color: #b1bcc6; ">
-                            <div class="panel panel-default">
-                            <br>
-                            <div class="panel-heading text-center" id="titulos">
-                                <h3 id="titulos">Registrar nueva persona</h3>
-                                <hr>
-                            </div>
-                            <br><br>
+                        <form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['createPeople']) ? 'registerPeople' : 'editPeople'; ?>" method="POST" class="php-email-form border-0 shadow col-md-10 offset-md-1" style="background-color: #b1bcc6; ">
+                            <div class="panel panel-default p-sm-2 ">
+                                <div class="panel-heading text-center" id="titulos">
+                                    <h3 class="panel-title text-center" id="titulos">Registrar nueva persona</h3>
+                                    <hr>
+                                </div>
+                                <br>
                                 <?php
                                 if (isset($data['editPeople'])) {
                                     ?>
@@ -81,33 +80,34 @@
                                 }
                                 ?>
                                 
-                                <div class="row gy-4 panel-body">
-                                    <div class="col-md-6 form-floating mb-3">
-                                        <input type="text" name="nombre" class="form-control" id="nombre" value="<?php if (isset($data['info_people'])) {echo $data['info_people']['nombre'];} ?>" placeholder="Nombre" />
+                                <div class="row gy-4 panel-body ">
+                                    <div class="col-md-6 form-floating">
+                                        <input type="text" required name="nombre" class="form-control" id="nombre" 
+                                        value="<?php if (isset($data['info_people'])) {echo $data['info_people']['nombre'];} ?>" placeholder="Nombre"/>
                                         <label for="floatingInput">  Nombre(s):</label>
                                     </div>
-                                    <div class="col-md-6 form-floating mb-3">
-                                        <input type="text" name="paterno" class="form-control" id="paterno" value="<?php if (isset($data['info_people'])) {echo $data['info_people']['paterno'];} ?>" placeholder="Apellido paterno" />
+                                    <div class="col-md-6 form-floating">
+                                        <input type="text" required name="paterno" class="form-control" id="paterno" value="<?php if (isset($data['info_people'])) {echo $data['info_people']['paterno'];} ?>" placeholder="Apellido paterno" />
                                         <label for="floatingInput">  Apellido paterno:</label>
                                     </div>
-                                    <div class="col-md-6 form-floating mb-3">
-                                        <input type="text" name="materno" class="form-control" id="materno" value="<?php if (isset($data['info_people'])) {echo $data['info_people']['materno'];} ?>" placeholder="Apellido materno" />
+                                    <div class="col-md-6 form-floating">
+                                        <input type="text" required name="materno" class="form-control" id="materno" value="<?php if (isset($data['info_people'])) {echo $data['info_people']['materno'];} ?>" placeholder="Apellido materno" />
                                         <label for="floatingInput"> Apellido materno:</label>
                                     </div>
-                                    <div class="col-md-6 form-floating mb-3">
-                                        <input type="text" name="direccion" class="form-control" id="direccion" value="<?php if (isset($data['info_people'])) {echo $data['info_people']['direccion'];} ?>" placeholder="Dirección" />
+                                    <div class="col-md-6 form-floating">
+                                        <input type="text" required name="direccion" class="form-control" id="direccion" value="<?php if (isset($data['info_people'])) {echo $data['info_people']['direccion'];} ?>" placeholder="Dirección" />
                                         <label for="floatingInput">  Dirección:</label>
                                     </div>
-                                    <div class="col-md-4 form-floating mb-3">
-                                        <input type="text" name="telefono" class="form-control" id="telefono" value="<?php if (isset($data['info_people'])) {echo $data['info_people']['telefono'];} ?>" placeholder="Telefono" />
+                                    <div class="col-md-4 form-floating">
+                                        <input type="text" required name="telefono" class="form-control" id="telefono" value="<?php if (isset($data['info_people'])) {echo $data['info_people']['telefono'];} ?>" placeholder="Telefono" />
                                         <label for="floatingInput"> Teléfono:</label>
                                     </div>
-                                    <div class="col-md-4 form-floating mb-3">
-                                        <input type="text" name="edad" class="form-control" id="edad" value="<?php if (isset($data['info_people'])) {echo $data['info_people']['edad'];} ?>" placeholder="Edad" />
+                                    <div class="col-md-4 form-floating ">
+                                        <input type="text" required name="edad" class="form-control" id="edad" value="<?php if (isset($data['info_people'])) {echo $data['info_people']['edad'];} ?>" placeholder="Edad" />
                                         <label for="floatingInput"> Edad:</label>
                                     </div>
-                                    <div class="col-md-4 form-floating mb-3">
-                                        <input type="text" name="sexo" class="form-control" id="sexo" value="<?php if (isset($data['info_people'])) {echo $data['info_people']['sexo'];} ?>" placeholder="Sexo" />
+                                    <div class="col-md-4 form-floating ">
+                                        <input type="text" required name="sexo" class="form-control" id="sexo" value="<?php if (isset($data['info_people'])) {echo $data['info_people']['sexo'];} ?>" placeholder="Sexo" />
                                         <label for="floatingInput">  Sexo:</label>
                                     </div>
                                     
