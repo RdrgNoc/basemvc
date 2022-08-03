@@ -72,7 +72,26 @@
         <ul>
           <li><a href="<?php echo BASE_URL_ROUTE ?>welcomeuser">Inicio</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>perfil">Perfil</a></li>
-          <li><a href="<?php echo BASE_URL_ROUTE ?>ver-infracciones">Infracciones</a></li>
+            <li class="dropdown"><a href="#"><span>Personas</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>ver-personas">Listar</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a href="#"><span>Vehiculos</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>ver-vehiculos">Listar</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a href="#"><span>Infracciones</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>ver-infracciones">Listar</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a href="#"><span>Usuarios</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>ver-usuarios">Listar</a></li>
+                </ul>
+            </li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>logout">Salir</a></li>
           <li><a class="get-a-quote" href="#">¡Hola usuario! <?php echo $nickname; ?></a></li>
         </ul>
