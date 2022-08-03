@@ -19,3 +19,7 @@
 [E][18-07-2022 23:40:03][User/registry]: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'basemvc.vehicle' doesn't exist
 [E][24-07-2022 04:26:39][Vehicle/registry]: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'modelo' cannot be null
 [E][27-07-2022 05:24:30][functions/sendEmail]: No se ha enviado el mensaje: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+[E][03-08-2022 08:18:09][PeopleModel/registry]: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'sexo' at row 1
+[E][03-08-2022 09:06:16][PeopleModel/registry]: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'sexo' at row 1
+[E][03-08-2022 09:10:01][PeopleModel/registry]: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'sexo' at row 1
+[E][03-08-2022 09:11:28][PeopleModel/registry]: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'sexo' at row 1

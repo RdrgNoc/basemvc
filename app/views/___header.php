@@ -58,8 +58,7 @@
         <img src="public/img/letras1.png" alt="">
         <div class="container justify-content-center">
         </div>
-        
-        
+
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
