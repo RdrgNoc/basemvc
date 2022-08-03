@@ -1,8 +1,9 @@
 $(document).ready(function () {
     console.log("Entrando al WIZARD");
     var flagNO, flagSI;
-    var form = $("#form");
     $("#form").steps({
+        headerTag: "h1",
+        transitionEffect: "fade",
             labels: {
                 previous: 'Anterior',
                 next: 'Siguiente',
@@ -10,6 +11,7 @@ $(document).ready(function () {
                 current: ''
             },
             bodyTag: "fieldset",
+            titleTemplate: '<h1 class="title">#title#</h1>',
             onStepChanging: function (event, currentIndex, newIndex) {
                 // Always allow going backward even if the current step contains invalid fields!
                 console.log("CURRENT INDEX: " + currentIndex);

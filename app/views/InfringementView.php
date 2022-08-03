@@ -138,7 +138,7 @@
                                                                         <input class="form-control" list="datalistOptions2" name="vehicle" id="vehicle" placeholder="Vehiculo">
                                                                         <datalist id="datalistOptions2">
                                                                             <?php foreach ($data['vehiclesInput'] as $key => $vehicle) { ?>
-                                                                                <option value="<?php echo $vehicle['id']; ?>" ><?php echo $vehicle['modelo']; ?></option>
+                                                                                <option value="<?php echo $vehicle['id']; ?>" ><?php echo "Modelo: " . $vehicle['modelo'] . " Matricula: " . $vehicle['matricula'] ?></option>
                                                                             <?php $x++; } ?>
                                                                         </datalist>
                                                                         <label for="floatingInput"> Vehículo:</label>
@@ -184,7 +184,11 @@
                                                                             <label for="floatingInput"> Edad:</label>
                                                                         </div>
                                                                         <div class="col-md-4 form-floating">
-                                                                            <input type="text" name="sexo" class="form-control" id="sexo" placeholder="Sexo" />
+                                                                            <input class="form-control" list="datalistOptions4" name="sexo" id="sexo" placeholder="Sexo">
+                                                                            <datalist id="datalistOptions4">
+                                                                                    <option value="H" >Masculino</option>
+                                                                                    <option value="F" >Femenino</option>
+                                                                            </datalist>
                                                                             <label for="floatingInput"> Sexo:</label>
                                                                         </div>
                                                                     </div>
@@ -254,15 +258,21 @@
 
                                                     <h1></h1>
                                                     <fieldset>
-                                                        <legend>Terms and Conditions</legend>
-
+                                                        <div class="row">
+                                                            <div class="col-lg-12 panel panel-default p-sm-2 bordes">
+                                                                <div class="panel-heading text-center" id="titulos">
+                                                                    <h3 class="panel-title text-center" id="titulos">Finalizar</h3>
+                                                                    <hr>
+                                                                </div>
                                                         <input
                                                                 id="acceptTerms"
                                                                 name="acceptTerms"
                                                                 type="checkbox"
                                                                 class="required"
                                                         />
-                                                        <label for="acceptTerms">I agree with the Terms and Conditions.</label>
+                                                        <label for="acceptTerms">Ingresar registro(s)</label>
+                                                            </div>
+                                                        </div>
                                                     </fieldset>
                                                 </form>
                                             </div>
@@ -272,6 +282,9 @@
                             </div>
                         </div>
                     </div>
+                <div class="row">
+
+                </div>
             <?php } ?>
             </div>
         </div>

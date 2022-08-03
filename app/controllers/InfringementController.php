@@ -132,8 +132,7 @@ class InfringementController extends Controller
                     $data['message'] = $errorsInfringement;
                     $data['createVehicle'] = true;
                 }
-            }
-            if (isset($radOpc) == 2) {
+            } elseif (isset($radOpc) == 2) {
                 $paramsNewInfringement = array(
                     'opcion' => $radOpc,
                     'motivo' => $_POST['motivoNA'],
@@ -141,7 +140,7 @@ class InfringementController extends Controller
                     'date' => $date,
                     'people' => $_POST['people'],
                     'vehicle' => $_POST['vehicle'],
-                    'conditions' => $_POST['conditions'],
+                    'conditions' => 1,
                 );
 
                 $errorsInfringement = $this->model->checkErrors($paramsNewInfringement);
@@ -154,7 +153,7 @@ class InfringementController extends Controller
                         'date' => $date,
                         'people' => $_POST['people'],
                         'vehicle' => $_POST['vehicle'],
-                        'conditions' => $_POST['conditions'],
+                        'conditions' => 1,
                     );
 
                     $data = $this->model->registry($paramsNewInfringement);
