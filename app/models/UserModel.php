@@ -224,6 +224,82 @@ class UserModel
         return $data;
     }
 
+    function registryOneTime($params)
+    {
+
+        $db = new PDODB();
+        $data = array();
+        $data['show_message_info'] = true;
+        $paramsDB = array();
+
+        try {
+
+            $id_user = $db->getLastId("id", "users");
+                $sql = "INSERT INTO users VALUES(?,?,?,?,?,?,?,?,?,?,0,0,1)";
+
+            if (!empty($params['avatar'])) {
+                $avatar = $params['avatar'];
+            } else {
+                $avatar = PAGE_URL . "img/default-avatar.jpg";
+            }
+
+            $paramsDB = array(
+                $id_user,
+                $params['name'],
+                $params['surname'],
+                $params['nickname'],
+                $params['email'],
+                hash_hmac("sha512", $params['pass'], HASH_PASS_KEY),
+                date("Y-m-d"),
+                $avatar,
+                $params['rol'],
+                today()
+            );
+
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "User/registry", $sql);
+                writeLog(INFO_LOG, "User/registry", json_encode($paramsDB));
+            }
+
+            $success = $db->executeInstructionPrepared($sql, $paramsDB);
+            $data['success'] = $success;
+            $data['text-center'] = true;
+
+            if ($success) {
+                $data['message'] = "Su registro se salvo con exito.";
+            } else {
+                $data['message'] = "Su registro no se ha realizado con éxito.";
+            }
+        } catch (Exception $e) {
+            $data['success'] = false;
+            $data['message'] = ERROR_GENERAL;
+            writeLog(ERROR_LOG, "User/registry", $e->getMessage());
+        }
+
+        $db->close();
+        return $data;
+    }
+    public function getAllRolsInput(): array
+    {
+        $db = new PDODB();
+        $data = array();
+        $paramsDB = array();
+        try {
+            $sql = "SELECT * FROM roles";
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "UserModel/getAllRolsInput", $sql);
+                writeLog(INFO_LOG, "UserModel/getAllRolsInput", json_encode($paramsDB));
+            }
+            $data = $db->getDataPrepared($sql, $paramsDB);
+        } catch (Exception $e) {
+            $data['show_message_info'] = true;
+            $data['success'] = false;
+            $data['message'] = ERROR_GENERAL;
+            writeLog(ERROR_LOG, "UserModel/getAllRolsInput", $e->getMessage());
+        }
+        $db->close();
+        return $data;
+    }
     function edit_profile($params)
     {
 
@@ -543,6 +619,34 @@ class UserModel
         }
 
         $db->close();
+        return $data;
+    }
+    function displayUser()
+    {
+        $db = new PDODB();
+        $data = array();
+        $paramsDB = array();
+
+        try {
+            $sql = "SELECT * FROM users";
+
+            $data['num_elems'] = $db->numRowsPrepared($sql, $paramsDB);
+
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "UserModel/displayUser", $sql);
+                writeLog(INFO_LOG, "UserModel/displayUser", json_encode($paramsDB));
+            }
+
+            $data['users'] = $db->getDataPrepared($sql, $paramsDB);
+
+        } catch (Exception $e) {
+            $data['show_message_info'] = true;
+            $data['success'] = false;
+            $data['message'] = ERROR_GENERAL;
+            writeLog(ERROR_LOG, "UserModel/displayUser", $e->getMessage());
+        }
+        $db->close();
+
         return $data;
     }
 

@@ -1,8 +1,17 @@
 <?php
 
 include_once '___header.php';
-
+$z = 1;
+$x = 1;
 ?>
+
+    <script>
+        $(document).ready(function () {
+            var table003 = $('#tableUsers').DataTable({
+                responsive: true,
+            });
+        });
+    </script>
 <div class="container">
 <div class="row">
     <div class="col-sm-9 col-md-7 col-lg-7 mx-auto">
@@ -313,10 +322,175 @@ include_once '___header.php';
                 <div class="row g-0">
                     <div class="col-lg-12">
                         <h3>Bienvenido a la pagina del usuario</h3>
+
                     </div>
                 </div>
             </div>
         </section>
+            <?php
+        } else if (isset($data['displayAllUsers'])) {
+            ?>
+            <section id="get-a-quote" class="get-a-quote">
+                <div class="container" data-aos="fade-up">
+                    <div class="row g-0">
+                        <div class="col-lg-12">
+                            <h3>Mostrar todos los usuarios</h3>
+                            <table id="tableUsers" class="display table table-hover" style="width:100%">
+                                <thead class="TituloTabla">
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Nombre</th>
+                                    <th>Apellidos</th>
+                                    <th>Usuario</th>
+                                    <th>Correo</th>
+                                    <th>Última conexión</th>
+                                </tr>
+                                </thead>
+                                <tbody class="CuerpoTabla">
+                                <?php foreach ($data['users'] as $key => $value) { ?>
+                                    <tr>
+                                        <td><?php echo $z ?></td>
+                                        <td><?php echo $value['name']; ?></td>
+                                        <td><?php echo $value['surname']; ?></td>
+                                        <td><?php echo $value['nickname']; ?></td>
+                                        <td><?php echo $value['email']; ?></td>
+                                        <td><?php echo $value['last_connection']; ?></td>
+                                    </tr>
+                                    <?php $z++; } ?>
+                                </tbody>
+                                <tfoot class="TituloTabla">
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Nombre</th>
+                                    <th>Apellidos</th>
+                                    <th>Usuario</th>
+                                    <th>Correo</th>
+                                    <th>Última conexión</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php
+        } else if (isset($data['displayCreateUsers'])) {
+            ?>
+            <section id="get-a-quote" class="get-a-quote">
+                <div class="container" data-aos="fade-up">
+                    <div class="row g-0">
+                        <div class="col-lg-12">
+                            <div class="panel-body p-4 p-sm-12">
+                                <form  id="formUser" action="<?php echo BASE_URL_ROUTE ?>registerNewUser" method="POST" class="php-email-form">
+                                    <h3 class="panel-title text-center inicio">Registro</h3>
+                                    <div class="row form-floating ">
+                                        <div class="col-md-12 espacio">
+                                            <div class="row espacio">
+                                                <div class="col-md-5 form-floating">
+                                                    <input type="text"
+                                                           name="name"
+                                                           class="form-control espacio"
+                                                           id="name"
+                                                           maxlength="20"
+                                                           value="<?php if (isset($data['info_user'])) {echo $data['info_user']['name'];} ?>"
+                                                           placeholder="Nombre" />
+                                                    <label for="floatingInput"> Nombre(s): </label>
+                                                </div>
+                                                <div class="col-md-7 form-floating">
+                                                    <input type="text"
+                                                           name="surname"
+                                                           class="form-control espacio"
+                                                           id="surname"
+                                                           maxlength="30"
+                                                           value="<?php if (isset($data['info_user'])) {echo $data['info_user']['surname'];} ?>"
+                                                           placeholder="Apellidos" />
+                                                    <label for="floatingInput"> Apellidos: </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 espacio">
+                                            <div class="row espacio">
+                                                <div class="col-md-5 form-floating">
+                                                    <input type="text"
+                                                           name="nickname"
+                                                           class="form-control"
+                                                           id="nickname"
+                                                           maxlength="40"
+                                                           value="<?php if (isset($data['info_user'])) {echo $data['info_user']['nickname'];} ?>"
+                                                           placeholder="Nombre de usuario"/>
+                                                    <label for="floatingInput">Usuario: </label>
+                                                </div>
+                                                <div class="col-md-7 form-floating">
+                                                    <input type="text"
+                                                           name="email"
+                                                        <?php isset($data['edit_profile']) ? 'readonly' : '' ?>
+                                                           class="form-control"
+                                                           id="email"
+                                                           maxlength="40"
+                                                           value="<?php if (isset($data['info_user'])) {echo $data['info_user']['email'];} ?>"
+                                                           placeholder="Correo"/>
+                                                    <label for="floatingInput"> Correo: </label>
+                                                    <div class="valid-feedback">
+                                                        ¡Es correcto!
+                                                    </div>
+                                                    <div class="invalid-feedback">
+                                                        El email no tiene el formato correcto
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <div class="col-md-12 espacio">
+                                                <div class="row espacio">
+                                                    <div class="col-md-5 form-floating">
+                                                        <input type="password"
+                                                               id="password"
+                                                               name="pass"
+                                                               class="form-control" }
+                                                               maxlength="20"
+                                                               placeholder="Contraseña"/>
+                                                        <label for="floatingInput"> Contraseña: </label>
+                                                        <div class="valid-feedback">
+                                                            ¡Es correcto!
+                                                        </div>
+                                                        <div class="invalid-feedback">
+                                                            La contraseña debe tener minusculas, mayusculas y numeros. La longitud entre 8 y 20 caracteres
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-md-5 form-floating">
+                                                        <input type="password"
+                                                               name="confirm-pass"
+                                                               class="form-control"
+                                                               id="confirm-pass"
+                                                               maxlength="20"
+                                                               placeholder="Confirmar contraseña"/>
+                                                        <label for="floatingInput"> Confirmar contraseña: </label>
+                                                    </div>
+
+                                                    <div class="col-md-2 form-floating">
+                                                        <!--<input type="text" name="vehicle" class="form-control" id="vehicle" placeholder="Vehiculo" />-->
+                                                        <input class="form-control" list="datalistOptions1" name="rol" id="rol" placeholder="Rol">
+                                                        <datalist id="datalistOptions1">
+                                                            <?php foreach ($data['rolesInput'] as $key => $vehicle) { ?>
+                                                                <option value="<?php echo $vehicle['id']; ?>" ><?php echo $vehicle['rol']; ?></option>
+                                                                <?php $x++; } ?>
+                                                        </datalist>
+                                                        <label for="floatingInput"> Rol:</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" name="action" class="btn btn-login text-uppercase btn-block fw-bold acceder">Registrar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div><!-- End Quote Form -->
+                        </div>
+                    </div>
+                </div>
+            </section>
         <?php
         } 
         ?>

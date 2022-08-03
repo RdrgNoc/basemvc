@@ -44,7 +44,8 @@ class InfringementController extends Controller
             $paramsNewInfringement = array();
             $date = date('y-m-d');
 
-            if (isset($radOpc) == 1) {
+
+            if ($radOpc == "1") {
                 $paramsPeople = array(
                     'nombre' => $_POST['nombre'],
                     'paterno' => $_POST['paterno'],
@@ -132,7 +133,7 @@ class InfringementController extends Controller
                     $data['message'] = $errorsInfringement;
                     $data['createVehicle'] = true;
                 }
-            } elseif (isset($radOpc) == 2) {
+            } elseif ($radOpc == "2") {
                 $paramsNewInfringement = array(
                     'opcion' => $radOpc,
                     'motivo' => $_POST['motivoNA'],
@@ -167,6 +168,9 @@ class InfringementController extends Controller
             if (isModeDebug()) {
                 writeLog(INFO_LOG, "Infringement/registerInfringement", json_encode($data));
             }
+            $data['peoplesInput'] = $this->model->getAllPeoplesInput();
+            $data['vehiclesInput'] = $this->model->getAllVehiclesInput();
+            $data['conditionsInput'] = $this->model->getAllConditionsInput();
             $data['displayCreateInfringements'] = true;
             $this->view("InfringementView", $data);
         }

@@ -103,6 +103,12 @@
                     <li><a href="<?php echo BASE_URL_ROUTE ?>crear-infracciones">Crear</a></li>
                 </ul>
             </li>
+            <li class="dropdown"><a href="#"><span>Usuarios</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>ver-usuarios">Listar</a></li>
+                    <li><a href="<?php echo BASE_URL_ROUTE ?>crear-usuarios">Crear</a></li>
+                </ul>
+            </li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>logout">Salir</a></li>
           <li><a class="get-a-quote" href="<?php echo BASE_URL_ROUTE ?>perfil">¡Hola <?php echo $nickname; ?>!</a></li>
         </ul>

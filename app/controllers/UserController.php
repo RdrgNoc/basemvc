@@ -16,6 +16,65 @@ class UserController extends Controller
 
         $this->view("UserView", $data);
     }
+    function displayUsers()
+    {
+        isLogged();
+        $data = array();
+        $data = $this->model->displayUser();
+        $data['displayAllUsers'] = true;
+        $this->view("UserView", $data);
+    }
+    public function create(){
+        isLogged();
+        $data = array();
+        $data['rolesInput'] = $this->model->getAllRolsInput();
+        $data['displayCreateUsers'] = true;
+        $this->view("UserView", $data);
+    }
+    public function registerUser()
+    {
+        if (isset($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
+            $data = array();
+            $params = array();
+            $params = array(
+                'name' => $_POST['name'],
+                'nickname' => $_POST['nickname'],
+                'email' => $_POST['email'],
+                'pass' => $_POST['pass'],
+                'confirm-pass' => $_POST['confirm-pass'],
+                'rol' => $_POST['rol'],
+                'avatar' => ""
+            );
+
+            $errors = $this->model->checkErrors($params);
+
+            if (count($errors) === 0) {
+                $params = array(
+                    'name' => $_POST['name'],
+                    'surname' => $_POST['surname'],
+                    'nickname' => $_POST['nickname'],
+                    'email' => $_POST['email'],
+                    'pass' => $_POST['pass'],
+                    'rol' => $_POST['rol'],
+                    'avatar' => ""
+                );
+
+                $data = $this->model->registryOneTime($params);
+            } else {
+                $data['show_message_info'] = true;
+                $data['success'] = false;
+                $data['message'] = $errors;
+                $data['createVehicle'] = true;
+            }
+
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "UserController/registerUser", json_encode($data));
+            }
+            $data = $this->model->displayUser();
+            $data['displayAllUsers'] = true;
+            $this->view("UserView", $data);
+        }
+    }
     function displayWelcome()
     {
         $data['welcome'] = true;

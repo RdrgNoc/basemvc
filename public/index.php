@@ -37,6 +37,8 @@ $router->register(new Route('/^\/' . BASE_URL . '\/ver-vehiculos$/', 'VehicleCon
 $router->register(new Route('/^\/' . BASE_URL . '\/crear-vehiculos$/', 'VehicleController', 'create'));
 $router->register(new Route('/^\/' . BASE_URL . '\/ver-personas$/', 'PeopleController', 'display'));
 $router->register(new Route('/^\/' . BASE_URL . '\/crear-personas$/', 'PeopleController', 'create'));
+$router->register(new Route('/^\/' . BASE_URL . '\/ver-usuarios/', 'UserController', 'displayUsers'));
+$router->register(new Route('/^\/' . BASE_URL . '\/crear-usuarios/', 'UserController', 'create'));
 
 
 
@@ -61,6 +63,7 @@ $router->register(new Route('/^\/' . BASE_URL . '\/editVehicle$/', 'VehicleContr
 $router->register(new Route('/^\/' . BASE_URL . '\/registerPeople$/', 'PeopleController', 'registerPeople'));
 $router->register(new Route('/^\/' . BASE_URL . '\/editPeople$/', 'PeopleController', 'edit'));
 $router->register(new Route('/^\/' . BASE_URL . '\/registerInfringement$/', 'InfringementController', 'registerInfringement'));
+$router->register(new Route('/^\/' . BASE_URL . '\/registerNewUser$/', 'UserController', 'registerUser'));
 
 
 
