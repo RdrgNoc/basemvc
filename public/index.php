@@ -63,6 +63,7 @@ $router->register(new Route('/^\/' . BASE_URL . '\/editVehicle$/', 'VehicleContr
 $router->register(new Route('/^\/' . BASE_URL . '\/registerPeople$/', 'PeopleController', 'registerPeople'));
 $router->register(new Route('/^\/' . BASE_URL . '\/editPeople$/', 'PeopleController', 'edit'));
 $router->register(new Route('/^\/' . BASE_URL . '\/registerInfringement$/', 'InfringementController', 'registerInfringement'));
+$router->register(new Route('/^\/' . BASE_URL . '\/editInfringement$/', 'InfringementController', 'edit'));
 $router->register(new Route('/^\/' . BASE_URL . '\/registerNewUser$/', 'UserController', 'registerUser'));
 
 
@@ -85,6 +86,8 @@ $router->register(new Route('/^\/' . BASE_URL . '\/vehicle\/edit\/(\w+)$/', 'Veh
 $router->register(new Route('/^\/' . BASE_URL . '\/people\/delete\/(\w+)$/', 'PeopleController', 'delete'));
 
 $router->register(new Route('/^\/' . BASE_URL . '\/people\/edit\/(\w+)$/', 'PeopleController', 'editPeople'));
+
+$router->register(new Route('/^\/' . BASE_URL . '\/infringement\/edit\/(\w+)$/', 'InfringementController', 'editInfringement'));
 
 
 // Users

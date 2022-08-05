@@ -4,10 +4,12 @@ class UserController extends Controller
 {
 
     private $model;
+    private $modelInfringement;
 
     function __construct()
     {
         $this->model = $this->model("UserModel");
+        $this->modelInfringement = $this->model("InfringementModel");
     }
 
     function display()
@@ -83,9 +85,12 @@ class UserController extends Controller
     }
     function displayWelcomeAdmin()
     {
-        $data['welcome'] = true;
-
-        $this->view("SuperAdminView", $data);
+        isLogged();
+        $data = array();
+        //$data['welcome'] = true;
+        $data = $this->modelInfringement->displayInfringement();
+        $data['displayAllInfringements'] = true;
+        $this->view("InfringementView", $data);
     }
 
     function display_profile()

@@ -18,13 +18,15 @@
                 <table id="tableInfringements" class="display table table-hover" style="width:100%">
                     <thead class="TituloTabla">
                         <tr>
-                            <th>ID</th>
+                            <th>No.</th>
                             <th>Motivo</th>
                             <th>Monto</th>
                             <th>Fecha</th>
                             <th>Persona</th>
                             <th>Vehiculo</th>
+                            <th>Matricula</th>
                             <th>Estado</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="CuerpoTabla">
@@ -33,9 +35,10 @@
                         <td><?php echo $z ?></td>
                         <td><?php echo $value['motivo']; ?></td>
                         <td><?php echo $value['multa']; ?></td>
-                        <td><?php echo $value['date']; ?></td>
-                        <td><?php echo $value['nombre']; ?></td>
-                        <td><?php echo $value['modelo']; ?></td>
+                        <td><?php echo $value['fecha']; ?></td>
+                        <td><?php echo $value['nomCompleto']; ?></td>
+                        <td><?php echo $value['vehiculo']; ?></td>
+                        <td><?php echo $value['matricula']; ?></td>
                         <?php if ($value['conditions'] === "No pagado") { ?>
                             <td><span class="badge bg-dark"><?php echo $value['conditions']; ?></span></td>
                         <?php } else if ($value['conditions'] === "Pagado") { ?>
@@ -47,18 +50,28 @@
                         <?php } else { ?>
                             <td><span class="badge bg-secondary"><?php echo $value['conditions']; ?></span></td>
                         <?php } ?>
+                        <td>
+                            <a class="badge text-bg-light" title="Editar" href="<?php echo BASE_URL_ROUTE ?>infringement/edit/<?php echo $value['idInfringement']; ?>">
+                                <i class="fa fa-pen-to-square"></i>
+                            </a>
+                            <!--<a class="badge text-bg-light" title="Eliminar" href="<?php echo BASE_URL_ROUTE ?>infringement/delete/<?php echo $value['idInfringement']; ?>">
+                                <i class="fa fa-trash-can"></i>
+                            </a>-->
+                        </td>
                     </tr>
                 <?php $z++; } ?>
                     </tbody>
                     <tfoot class="TituloTabla">
                         <tr>
-                            <th>ID</th>
+                            <th>No.</th>
                             <th>Motivo</th>
                             <th>Monto</th>
                             <th>Fecha</th>
                             <th>Persona</th>
                             <th>Vehiculo</th>
+                            <th>Matricula</th>
                             <th>Estado</th>
+                            <th>Acciones</th>
                         </tr>
                     </tfoot>
                 </table>
@@ -284,6 +297,95 @@
                     </div>
                 <div class="row">
 
+                </div>
+            <?php } elseif(isset($data['editInfringement'])) { ?>
+                <div class="row" >
+                    <div class="col-lg-10 offset-lg-1 panel panel-default p-sm-2 border-0 shadow" style="background-color: #b1bcc6; ">
+                        <div class="panel-heading text-center" id="titulos">
+                            <h3 class="panel-title text-center" id="titulos" style="margin-top: 40px;">Editar infracción</h3>
+                            <hr id="linea">
+                            <div class="alert alert-info" role="alert">
+                                <p class="display-6">* Para editar el registro, elimine el texto dentro de cada cajon que desee editar con un nuevo dato, para que este genere una lista por cada campo</p>
+                            </div>
+                        </div>
+                        <div class="row gy-4 panel-body ">
+                            <div class="col-lg-12 ">
+                                <div class=" aos-init aos-animate " data-aos="fade-up">
+                                    <div class="row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                                        <div class="col-lg-12">
+                                            <form id="formUser" action="<?php echo BASE_URL_ROUTE ?>editInfringement">
+                                                <?php
+                                                if (isset($data['editInfringement'])) {
+                                                    ?>
+                                                    <input type="hidden" name="id_vehicle" value="<?php echo $data['info_infringement']['id']; ?>" />
+                                                    <?php
+                                                }
+                                                ?>
+                                                <div class="row gy-3 panel-body">
+                                                    <div class="col-md-6 form-floating">
+                                                        <input disabled type="number" name="multaEdit" class="form-control" id="multaEdit" placeholder="$ Multa" value="<?php if (isset($data['info_infringement'])) {echo $data['info_infringement']['multa'];} ?>" />
+                                                        <label for="floatingInput"> $Multa:</label>
+                                                    </div>
+                                                    <div class="col-md-6 form-floating">
+                                                        <?php if (isset($data['editInfringement'])) { ?>
+                                                            <?php foreach ($data['conditionsInput'] as $key => $condition) { ?>
+                                                                <?php if ($data['info_infringement']['conditions'] === $condition['id']) { ?>
+                                                                    <input class="form-control" list="datalistOptions3" name="conditionsEdit" id="conditionsEdit" placeholder="Estado" value="<?php echo $condition['conditions']; ?>">
+                                                                <?php } ?>
+                                                                <?php $x++; } ?>
+                                                            <datalist id="datalistOptions3">
+                                                                <?php foreach ($data['conditionsInput'] as $key => $condition) { ?>
+                                                                    <option value="<?php echo $condition['id']; ?>" ><?php echo $condition['conditions']; ?></option>
+                                                                    <?php $x++; } ?>
+                                                            </datalist>
+                                                            <label for="floatingInput"> Estado de multa:</label>
+                                                        <?php } ?>
+                                                    </div>
+                                                    <div class="col-md-12 form-floating">
+                                                        <input disabled type="text" name="motivoEdit" class="form-control" id="motivoEdit" placeholder="Motivo / Descripción" value="<?php if (isset($data['info_infringement'])) {echo $data['info_infringement']['motivo'];} ?>" />
+                                                        <label for="floatingInput"> Motivo/Descripción:</label>
+                                                    </div>
+                                                    <div class="col-md-6 form-floating">
+                                                        <?php if (isset($data['editInfringement'])) { ?>
+                                                            <?php foreach ($data['peoplesInput'] as $key => $people) { ?>
+                                                                <?php if ($data['info_infringement']['people'] === $people['id']) { ?>
+                                                                    <input disabled class="form-control" list="datalistOptions1" name="peopleEdit" id="peopleEdit" placeholder="Persona" value="<?php echo $people['nombre'] . " " . $people['paterno'] . " " . $people['materno']; ?>">
+                                                                <?php } ?>
+                                                                <?php $z++; } ?>
+                                                            <!--<datalist id="datalistOptions1">
+                                                                <?php /*foreach ($data['peoplesInput'] as $key => $people) { */?>
+                                                                    <option value="<?php /*echo $people['id']; */?>" ><?php /*echo $people['nombre'] . " " . $people['paterno'] . " " . $people['materno']; */?></option>
+                                                                    <?php /*$z++; } */?>
+                                                            </datalist>-->
+                                                        <?php } ?>
+                                                        <label for="floatingInput"> Nombre persona:</label>
+                                                    </div>
+                                                    <div class="col-md-6 form-floating">
+                                                        <?php if (isset($data['editInfringement'])) { ?>
+                                                            <?php foreach ($data['vehiclesInput'] as $key => $vehicle) { ?>
+                                                                <?php if ($data['info_infringement']['vehicle'] === $vehicle['id']) { ?>
+                                                                    <input disabled class="form-control" list="datalistOptions2" name="vehicleEdit" id="vehicleEdit" placeholder="Vehiculo" value="<?php echo "Modelo: " . $vehicle['modelo'] . " Matricula: " . $vehicle['matricula'] ?>">
+                                                                <?php } ?>
+                                                                <?php $z++; } ?>
+                                                            <!--<datalist id="datalistOptions2">
+                                                                <?php /*foreach ($data['vehiclesInput'] as $key => $vehicle) { */?>
+                                                                    <option value="<?php /*echo $vehicle['id']; */?>" ><?php /*echo "Modelo: " . $vehicle['modelo'] . " Matricula: " . $vehicle['matricula'] */?></option>
+                                                                    <?php /*$x++; } */?>
+                                                            </datalist>-->
+                                                        <?php } ?>
+                                                        <label for="floatingInput"> Vehículo:</label>
+                                                    </div>
+                                                    <br>
+                                                    <div class="col-md-12 text-center">
+                                                        <button type="submit" name="action" class="btn btn-login text-uppercase btn-block fw-bold acceder">Editar</button>
+                                                    </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             <?php } ?>
             </div>

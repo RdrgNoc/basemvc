@@ -279,7 +279,7 @@ class UserModel
         $db->close();
         return $data;
     }
-    public function getAllRolsInput(): array
+    public function getAllRolsInput()
     {
         $db = new PDODB();
         $data = array();

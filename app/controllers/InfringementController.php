@@ -103,7 +103,7 @@ class InfringementController extends Controller
                 }
 
                 if (empty($newIDP) && empty($newIDV)) {
-
+                    $data['message'] = "Los ID estan vacios, por lo que no han sido recogidos los datos correctamente";
                 } else {
                     $paramsInfringement = array(
                         'opcion' => $radOpc,
@@ -174,5 +174,22 @@ class InfringementController extends Controller
             $data['displayCreateInfringements'] = true;
             $this->view("InfringementView", $data);
         }
+    }
+    public function editInfringement($id_infringement)
+    {
+        isLogged();
+        $data = array();
+        $params = array(
+            'id_infringement' => intval(filter_var($id_infringement, FILTER_SANITIZE_NUMBER_INT))
+        );
+        $data['info_infringement'] = $this->model->getInfoInfringement($params);
+        $data['editInfringement'] = true;
+        if (isModeDebug()) {
+            writeLog(INFO_LOG, "InfringementController/editInfringement", json_encode($data));
+        }
+        $data['peoplesInput'] = $this->model->getAllPeoplesInput();
+        $data['vehiclesInput'] = $this->model->getAllVehiclesInput();
+        $data['conditionsInput'] = $this->model->getAllConditionsInput();
+        $this->view("InfringementView", $data);
     }
 }

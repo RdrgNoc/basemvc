@@ -14,7 +14,16 @@ class InfringementModel
         $paramsDB = array();
 
         try {
-            $sql = "SELECT * FROM infringement a INNER JOIN people b ON a.people = b.id INNER JOIN vehicles c ON a.vehicle = c.id INNER JOIN conditions d ON a.conditions = d.id";
+            $sql = "SELECT 
+	                    a.id as idInfringement, 
+	                            a.motivo as motivo, 
+	                            a.multa as multa,
+                                a.date as fecha, 
+                                concat(b.nombre, b.paterno, b.materno) as nomCompleto, 
+                                concat(c.marca, c.modelo) as vehiculo, 
+                                c.matricula as matricula, 
+                                d.conditions as conditions 
+                    FROM infringement a INNER JOIN people b ON a.people = b.id INNER JOIN vehicles c ON a.vehicle = c.id INNER JOIN conditions d ON a.conditions = d.id";
 
             $data['num_elems'] = $db->numRowsPrepared($sql, $paramsDB);
 
@@ -115,7 +124,7 @@ class InfringementModel
         $db->close();
         return $data;
     }
-    public function getAllVehiclesInput(): array
+    public function getAllVehiclesInput()
     {
         $db = new PDODB();
         $data = array();
@@ -136,7 +145,7 @@ class InfringementModel
         $db->close();
         return $data;
     }
-    public function getAllPeoplesInput(): array
+    public function getAllPeoplesInput()
     {
         $db = new PDODB();
         $data = array();
@@ -175,6 +184,33 @@ class InfringementModel
             $data['message'] = ERROR_GENERAL;
             writeLog(ERROR_LOG, "InfringementModel/getAllConditionsInput", $e->getMessage());
         }
+        $db->close();
+        return $data;
+    }
+    public function getInfoInfringement($params)
+    {
+        $db = new PDODB();
+        $data = array();
+        $paramsDB = array();
+        try {
+            $sql = "SELECT * FROM infringement WHERE id = ?";
+
+            $paramsDB = array(
+                $params['id_infringement']
+            );
+
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "InfringementModel/getInfoInfringement", $sql);
+                writeLog(INFO_LOG, "InfringementModel/getInfoInfringement", json_encode($paramsDB));
+            }
+
+            $data = $db->getDataSinglePrepared($sql, $paramsDB);
+        } catch (Exception $e) {
+            $data['success'] = false;
+            $data['message'] = ERROR_GENERAL;
+            writeLog(ERROR_LOG, "InfringementModel/getInfoInfringement", $e->getMessage());
+        }
+
         $db->close();
         return $data;
     }
