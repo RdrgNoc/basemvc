@@ -144,8 +144,8 @@ h3 .text-title{
 }
 
 .espacio-derecho{
-	margin-right: 25px;
-	padding-right: 25px;
+	margin-right: 5px;
+	padding-right: 5px;
 }
 
 #linea{
@@ -169,4 +169,10 @@ h3 .text-title{
 
 .titulo-principal{
 	font-size: 60px;
+}
+
+.titulo-inicio1{
+	color: #022164;
+	padding-left: 20px
+	margin-top: 60px
 }
