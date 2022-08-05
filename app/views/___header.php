@@ -69,6 +69,7 @@
       ?>
       <nav id="navbar" class="navbar">
         <ul>
+          <li><a href="<?php echo BASE_URL_ROUTE ?>welcomeuser">Inicio</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>perfil">Perfil</a></li>
             <li class="dropdown"><a href="#"><span>Personas</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
@@ -99,6 +100,7 @@
       ?>
       <nav id="navbar" class="navbar">
         <ul>
+          <li><a href="<?php echo BASE_URL_ROUTE ?>welcomeadmin">Inicio</a></li>
           <li class="dropdown"><a href="#"><span>Personas</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
                     <li><a href="<?php echo BASE_URL_ROUTE ?>ver-personas">Listar</a></li>

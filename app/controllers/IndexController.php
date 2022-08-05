@@ -12,9 +12,9 @@ class IndexController extends Controller
 
     function display()
     {
-        //$data = array();
-        //$data['display_login'] = true;
-        //$this->view("IndexView", $data);
-        $this->view("IndexView");
+        $data = array();
+        $data['display_login'] = true;
+        $this->view("LoginView", $data);
+        //$this->view("IndexView");
     }
 }
