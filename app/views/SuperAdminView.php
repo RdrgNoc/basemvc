@@ -10,7 +10,7 @@ include_once '___header.php';
             <div class="container" data-aos="fade-up">
                 <div class="row g-0">
                     <div class="col-lg-12">
-                        <h3>Bienvenido a la pagina del admin</h3>
+                        <center><h3 style="font-size: 60px;">Policia municipal</h3></center>
                     </div>
                 </div>
             </div>

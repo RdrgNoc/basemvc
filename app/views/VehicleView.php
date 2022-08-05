@@ -63,7 +63,7 @@
                     <?php } elseif (isset($data['createVehicle']) || isset($data['editVehicle'])) { ?>
                         <div class="row">
                             <div class="">
-                            <form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['createVehicle']) ? 'registerVehicle' : 'editVehicle'; ?>" method="POST" class="php-email-form sborder-0 shadow col-md-10 offset-md-1" style="background-color: #b1bcc6; ">
+                            <form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['createVehicle']) ? 'registerVehicle' : 'editVehicle'; ?>" method="POST" class="php-email-form sborder-0 shadow col-md-10 offset-md-1" style="background: rgba(179, 219, 221, 0.2);">
                             <div class="panel panel-default p-sm-2">
                             <div class="panel-heading text-center" id="titulos">
                                 <h3 id="titulos">Registrar nuevo vehículo</h3>

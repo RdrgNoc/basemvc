@@ -65,7 +65,7 @@
             <?php } elseif(isset($data['displayCreateInfringements'])) { ?>
                     
                     <div class="row" >
-                        <div class="col-lg-10 offset-lg-1 panel panel-default p-sm-2 border-0 shadow" style="background-color: #b1bcc6; ">
+                        <div class="col-lg-10 offset-lg-1 panel panel-default p-sm-2 border-0 shadow" style="background: rgba(179, 219, 221, 0.2);">
                             <div class="panel-heading text-center" id="titulos">
                                 <h3 class="panel-title text-center" id="titulos" style="margin-top: 40px;">REGISTRAR NUEVA INFRACCIÓN</h3>
                                 <hr id="linea">
@@ -75,7 +75,7 @@
                                     <div class=" aos-init aos-animate " data-aos="fade-up">
                                         <div class="row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
                                             <div class="col-lg-12">
-                                                <form action="<?php echo BASE_URL_ROUTE ?>registerInfringement" id="form" method="POST" class="php-email-form" style="background-color: #b1bcc6;">
+                                                <form action="<?php echo BASE_URL_ROUTE ?>registerInfringement" id="form" method="POST" class="php-email-form" style="background: rgba(179, 219, 221, 0.2);">
                                                     <h1></h1>
                                                     <fieldset>
                                                         <div class="row">

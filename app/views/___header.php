@@ -55,9 +55,8 @@
       <a href="<?php echo BASE_URL_ROUTE ?>" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <img src="public/img/letras1.png" alt="">
-        <div class="container justify-content-center">
-        </div>
+        <img src="public/img/IMG_9671.PNG" alt="">
+        
 
       </a>
 
@@ -83,8 +82,6 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="<?php echo BASE_URL_ROUTE ?>welcomeadmin">Inicio</a></li>
-          <li><a href="<?php echo BASE_URL_ROUTE ?>log">Logs</a></li>
-          <li><a href="<?php echo BASE_URL_ROUTE ?>perfil">Perfil</a></li>
           <li class="dropdown"><a href="#"><span>Personas</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
                     <li><a href="<?php echo BASE_URL_ROUTE ?>ver-personas">Listar</a></li>
@@ -103,14 +100,14 @@
                     <li><a href="<?php echo BASE_URL_ROUTE ?>crear-infracciones">Crear</a></li>
                 </ul>
             </li>
-            <li class="dropdown"><a href="#"><span>Usuarios</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <!--<li class="dropdown"><a href="#"><span>Usuarios</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
                     <li><a href="<?php echo BASE_URL_ROUTE ?>ver-usuarios">Listar</a></li>
                     <li><a href="<?php echo BASE_URL_ROUTE ?>crear-usuarios">Crear</a></li>
                 </ul>
-            </li>
+            </li>-->
+            
           <li><a href="<?php echo BASE_URL_ROUTE ?>logout">Salir</a></li>
-          <li><a class="get-a-quote" href="<?php echo BASE_URL_ROUTE ?>perfil">¡Hola <?php echo $nickname; ?>!</a></li>
         </ul>
       </nav><!-- .navbar -->
       <?php        
@@ -120,7 +117,6 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="<?php echo BASE_URL_ROUTE ?>welcome"> Inicio</a></li>
-          <li><a href="<?php echo BASE_URL_ROUTE ?>register-form">Sign up</a></li>
           <li><a href="<?php echo BASE_URL_ROUTE ?>login-form">Login</a></li>
           <li class="espacio-derecho"></li>
         </ul>
@@ -135,7 +131,7 @@
   <main id="main">
   <!-- ======= Breadcrumbs ======= -->
   <div class="breadcrumbs">
-      <div class="page-header d-flex align-items-center" style="background-image: url('public/img/hidalgo.jpg');">
+      <div class="page-header d-flex align-items-center" style="background-image: url('public/img/blanco.jpg');">
       </div>
     </div><!-- End Breadcrumbs -->
     <?php include_once "___messages.php"; ?>

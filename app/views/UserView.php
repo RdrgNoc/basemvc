@@ -246,17 +246,6 @@ $x = 1;
                                         </a>
                                         </div>
                                     </div>
-                                    
-                                    
-                                    <?php
-                                    if ($data['info_user']['rol'] != 1) {
-                                    ?>
-                                        <a class="btn btn-danger btn-icon" href="<?php echo BASE_URL_ROUTE ?>desuscribirse-confirm">
-                                            <i class="fa fa-user-times" aria-hidden="true"></i> Darse de baja
-                                        </a>
-                                    <?php
-                                    }
-                                    ?>
                                 </div>
                             </div>
                         </form>

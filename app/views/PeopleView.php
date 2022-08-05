@@ -65,7 +65,7 @@
                             </tfoot>
                         </table>
                     <?php } elseif (isset($data['createPeople']) || isset($data['editPeople'])) { ?>
-                        <form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['createPeople']) ? 'registerPeople' : 'editPeople'; ?>" method="POST" class="php-email-form border-0 shadow col-md-10 offset-md-1" style="background-color: #b1bcc6; ">
+                        <form id="formUser" action="<?php echo BASE_URL_ROUTE ?><?php echo isset($data['createPeople']) ? 'registerPeople' : 'editPeople'; ?>" method="POST" class="php-email-form border-0 shadow col-md-10 offset-md-1" style="background: rgba(179, 219, 221, 0.2);">
                             <div class="panel panel-default p-sm-2 ">
                                 <div class="panel-heading text-center" id="titulos">
                                     <h3 class="panel-title text-center" id="titulos">Registrar nueva persona</h3>
