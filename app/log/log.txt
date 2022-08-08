@@ -23,3 +23,7 @@
 [E][03-08-2022 09:06:16][PeopleModel/registry]: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'sexo' at row 1
 [E][03-08-2022 09:10:01][PeopleModel/registry]: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'sexo' at row 1
 [E][03-08-2022 09:11:28][PeopleModel/registry]: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'sexo' at row 1
+[E][05-08-2022 23:57:29][VehicleModel/delete]: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`basemvc`.`infringement`, CONSTRAINT `fk_vehicle_infringement` FOREIGN KEY (`vehicle`) REFERENCES `vehicles` (`id`))
+[E][05-08-2022 23:57:44][PeopleModel/delete]: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`basemvc`.`infringement`, CONSTRAINT `fk_people_infringement` FOREIGN KEY (`people`) REFERENCES `people` (`id`))
+[E][05-08-2022 23:59:42][PeopleModel/delete]: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`basemvc`.`infringement`, CONSTRAINT `fk_people_infringement` FOREIGN KEY (`people`) REFERENCES `people` (`id`))
+[E][08-08-2022 20:18:05][VehicleModel/delete]: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`basemvc`.`infringement`, CONSTRAINT `fk_vehicle_infringement` FOREIGN KEY (`vehicle`) REFERENCES `vehicles` (`id`))
