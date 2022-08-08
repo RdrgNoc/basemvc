@@ -49,6 +49,7 @@ class LoginController extends Controller
                     redirect_to_url(BASE_URL_ROUTE."welcomeadmin");
                 }
             } else {
+                $data['display_login'] = true;
                 $this->view("LoginView", $data);
             }
         }

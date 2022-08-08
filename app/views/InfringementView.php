@@ -313,24 +313,23 @@
                                 <div class=" aos-init aos-animate " data-aos="fade-up">
                                     <div class="row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
                                         <div class="col-lg-12">
-                                            <form id="formUser" action="<?php echo BASE_URL_ROUTE ?>editInfringement">
-                                                <?php
+                                            <form id="formUser" action="<?php echo BASE_URL_ROUTE ?>editInfringements" method="POST" class="php-email-form sborder-0 shadow col-md-10 offset-md-1" style="background: rgba(179, 219, 221, 0.2);">                                                <?php
                                                 if (isset($data['editInfringement'])) {
                                                     ?>
-                                                    <input type="hidden" name="id_vehicle" value="<?php echo $data['info_infringement']['id']; ?>" />
+                                                    <input type="hidden" name="id_infringement" value="<?php echo $data['info_infringement']['id']; ?>" />
                                                     <?php
                                                 }
                                                 ?>
                                                 <div class="row gy-3 panel-body">
                                                     <div class="col-md-6 form-floating">
-                                                        <input disabled type="number" name="multaEdit" class="form-control" id="multaEdit" placeholder="$ Multa" value="<?php if (isset($data['info_infringement'])) {echo $data['info_infringement']['multa'];} ?>" />
+                                                        <input readonly="readonly" type="number" name="multa" class="form-control" id="multa" placeholder="$ Multa" value="<?php if (isset($data['info_infringement'])) {echo $data['info_infringement']['multa'];} ?>" />
                                                         <label for="floatingInput"> $Multa:</label>
                                                     </div>
                                                     <div class="col-md-6 form-floating">
                                                         <?php if (isset($data['editInfringement'])) { ?>
                                                             <?php foreach ($data['conditionsInput'] as $key => $condition) { ?>
                                                                 <?php if ($data['info_infringement']['conditions'] === $condition['id']) { ?>
-                                                                    <input class="form-control" list="datalistOptions3" name="conditionsEdit" id="conditionsEdit" placeholder="Estado" value="<?php echo $condition['conditions']; ?>">
+                                                                    <input class="form-control" list="datalistOptions3" name="conditions" id="conditions" placeholder="Estado" value="<?php echo $condition['conditions']; ?>">
                                                                 <?php } ?>
                                                                 <?php $x++; } ?>
                                                             <datalist id="datalistOptions3">
@@ -342,39 +341,39 @@
                                                         <?php } ?>
                                                     </div>
                                                     <div class="col-md-12 form-floating">
-                                                        <input disabled type="text" name="motivoEdit" class="form-control" id="motivoEdit" placeholder="Motivo / Descripción" value="<?php if (isset($data['info_infringement'])) {echo $data['info_infringement']['motivo'];} ?>" />
+                                                        <input readonly="readonly" type="text" name="motivo" class="form-control" id="motivo" placeholder="Motivo / Descripción" value="<?php if (isset($data['info_infringement'])) {echo $data['info_infringement']['motivo'];} ?>" />
                                                         <label for="floatingInput"> Motivo/Descripción:</label>
                                                     </div>
-                                                    <div class="col-md-6 form-floating">
-                                                        <?php if (isset($data['editInfringement'])) { ?>
-                                                            <?php foreach ($data['peoplesInput'] as $key => $people) { ?>
-                                                                <?php if ($data['info_infringement']['people'] === $people['id']) { ?>
-                                                                    <input disabled class="form-control" list="datalistOptions1" name="peopleEdit" id="peopleEdit" placeholder="Persona" value="<?php echo $people['nombre'] . " " . $people['paterno'] . " " . $people['materno']; ?>">
-                                                                <?php } ?>
-                                                                <?php $z++; } ?>
-                                                            <!--<datalist id="datalistOptions1">
-                                                                <?php /*foreach ($data['peoplesInput'] as $key => $people) { */?>
-                                                                    <option value="<?php /*echo $people['id']; */?>" ><?php /*echo $people['nombre'] . " " . $people['paterno'] . " " . $people['materno']; */?></option>
-                                                                    <?php /*$z++; } */?>
-                                                            </datalist>-->
-                                                        <?php } ?>
-                                                        <label for="floatingInput"> Nombre persona:</label>
-                                                    </div>
-                                                    <div class="col-md-6 form-floating">
-                                                        <?php if (isset($data['editInfringement'])) { ?>
-                                                            <?php foreach ($data['vehiclesInput'] as $key => $vehicle) { ?>
-                                                                <?php if ($data['info_infringement']['vehicle'] === $vehicle['id']) { ?>
-                                                                    <input disabled class="form-control" list="datalistOptions2" name="vehicleEdit" id="vehicleEdit" placeholder="Vehiculo" value="<?php echo "Modelo: " . $vehicle['modelo'] . " Matricula: " . $vehicle['matricula'] ?>">
-                                                                <?php } ?>
-                                                                <?php $z++; } ?>
-                                                            <!--<datalist id="datalistOptions2">
-                                                                <?php /*foreach ($data['vehiclesInput'] as $key => $vehicle) { */?>
-                                                                    <option value="<?php /*echo $vehicle['id']; */?>" ><?php /*echo "Modelo: " . $vehicle['modelo'] . " Matricula: " . $vehicle['matricula'] */?></option>
-                                                                    <?php /*$x++; } */?>
-                                                            </datalist>-->
-                                                        <?php } ?>
-                                                        <label for="floatingInput"> Vehículo:</label>
-                                                    </div>
+<!--                                                    <div class="col-md-6 form-floating">-->
+<!--                                                        --><?php //if (isset($data['editInfringement'])) { ?>
+<!--                                                            --><?php //foreach ($data['peoplesInput'] as $key => $people) { ?>
+<!--                                                                --><?php //if ($data['info_infringement']['people'] === $people['id']) { ?>
+<!--                                                                    <input readonly="readonly" class="form-control" list="datalistOptions1" name="people" id="people" placeholder="Persona" value="--><?php //echo $people['nombre'] . " " . $people['paterno'] . " " . $people['materno']; ?><!--">-->
+<!--                                                                --><?php //} ?>
+<!--                                                                --><?php //$z++; } ?>
+<!--                                                            -<datalist id="datalistOptions1">-->
+<!--                                                                --><?php ///*foreach ($data['peoplesInput'] as $key => $people) { */?>
+<!--                                                                    <option value="--><?php ///*echo $people['id']; */?><!--" >--><?php ///*echo $people['nombre'] . " " . $people['paterno'] . " " . $people['materno']; */?><!--</option>-->
+<!--                                                                    --><?php ///*$z++; } */?>
+<!--                                                            </datalist>-->
+<!--                                                        --><?php //} ?>
+<!--                                                        <label for="floatingInput"> Nombre persona:</label>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="col-md-6 form-floating">-->
+<!--                                                        --><?php //if (isset($data['editInfringement'])) { ?>
+<!--                                                            --><?php //foreach ($data['vehiclesInput'] as $key => $vehicle) { ?>
+<!--                                                                --><?php //if ($data['info_infringement']['vehicle'] === $vehicle['id']) { ?>
+<!--                                                                    <input readonly="readonly" class="form-control" list="datalistOptions2" name="vehicle" id="vehicle" placeholder="Vehiculo" value="--><?php //echo "Modelo: " . $vehicle['modelo'] . " Matricula: " . $vehicle['matricula'] ?><!--">-->
+<!--                                                                --><?php //} ?>
+<!--                                                                --><?php //$z++; } ?>
+<!--                                                            <datalist id="datalistOptions2">-->
+<!--                                                                --><?php ///*foreach ($data['vehiclesInput'] as $key => $vehicle) { */?>
+<!--                                                                    <option value="--><?php ///*echo $vehicle['id']; */?><!--" >--><?php ///*echo "Modelo: " . $vehicle['modelo'] . " Matricula: " . $vehicle['matricula'] */?><!--</option>-->
+<!--                                                                    --><?php ///*$x++; } */?>
+<!--                                                            </datalist>-->
+<!--                                                        --><?php //} ?>
+<!--                                                        <label for="floatingInput"> Vehículo:</label>-->
+<!--                                                    </div>-->
                                                     <br>
                                                     <div class="col-md-12 text-center">
                                                         <button type="submit" name="action" class="btn btn-login text-uppercase btn-block fw-bold acceder">Editar</button>

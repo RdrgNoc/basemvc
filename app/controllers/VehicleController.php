@@ -77,7 +77,7 @@ class VehicleController extends Controller
         } else {
             $data['message'] = "Vehiculo no se elimino correctamente";
         }
-        $data['displayAllVehicles'] = true;
+        $data['createVehicle'] = true;
         $this->view("VehicleView", $data);
     }
 

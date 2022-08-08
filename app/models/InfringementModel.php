@@ -76,7 +76,15 @@ class InfringementModel
                 }
             }
         } else {
-            array_push($errors, "VACIO");
+            if (empty($params['motivo'])) {
+                array_push($errors, "El campo motivo no puede estar vacio.");
+            }
+            if (empty($params['multa'])) {
+                array_push($errors, "El campo multa no puede estar vacio.");
+            }
+            if (empty($params['conditions'])) {
+                array_push($errors, "El campo estado no puede estar vacio.");
+            }
         }
 
         return $errors;
@@ -211,6 +219,37 @@ class InfringementModel
             writeLog(ERROR_LOG, "InfringementModel/getInfoInfringement", $e->getMessage());
         }
 
+        $db->close();
+        return $data;
+    }
+
+    public function edit($params)
+    {
+        $db = new PDODB();
+        $data = array();
+        $data['show_message_info'] = true;
+        $paramsDB = array();
+        try {
+            $sql = "UPDATE infringement SET motivo = ?, multa = ?, date = ?, conditions = ? WHERE id = ?";
+            $paramsDB = array(
+                $params['motivo'],
+                $params['multa'],
+                $params['date'],
+                $params['conditions'],
+                $params['id_infringement']
+            );
+
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "InfringementModel/edit", $sql);
+                writeLog(INFO_LOG, "InfringementModel/edit", json_encode($paramsDB));
+            }
+
+            $data['success'] = $db->executeInstructionPrepared($sql, $paramsDB);
+        } catch (Exception $e) {
+            $data['success'] = false;
+            $data['message'] = ERROR_GENERAL;
+            writeLog(ERROR_LOG, "InfringementModel/edit", $e->getMessage());
+        }
         $db->close();
         return $data;
     }

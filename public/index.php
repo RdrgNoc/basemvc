@@ -63,7 +63,7 @@ $router->register(new Route('/^\/' . BASE_URL . '\/editVehicle$/', 'VehicleContr
 $router->register(new Route('/^\/' . BASE_URL . '\/registerPeople$/', 'PeopleController', 'registerPeople'));
 $router->register(new Route('/^\/' . BASE_URL . '\/editPeople$/', 'PeopleController', 'edit'));
 $router->register(new Route('/^\/' . BASE_URL . '\/registerInfringement$/', 'InfringementController', 'registerInfringement'));
-$router->register(new Route('/^\/' . BASE_URL . '\/editInfringement$/', 'InfringementController', 'edit'));
+$router->register(new Route('/^\/' . BASE_URL . '\/editInfringements$/', 'InfringementController', 'edit'));
 $router->register(new Route('/^\/' . BASE_URL . '\/registerNewUser$/', 'UserController', 'registerUser'));
 
 

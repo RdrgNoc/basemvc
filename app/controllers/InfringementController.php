@@ -146,6 +146,7 @@ class InfringementController extends Controller
 
                 $errorsInfringement = $this->model->checkErrors($paramsNewInfringement);
 
+
                 if (count($errorsInfringement) === 0) {
                     $paramsNewInfringement = array(
                         'opcion' => $radOpc,
@@ -191,5 +192,59 @@ class InfringementController extends Controller
         $data['vehiclesInput'] = $this->model->getAllVehiclesInput();
         $data['conditionsInput'] = $this->model->getAllConditionsInput();
         $this->view("InfringementView", $data);
+    }
+
+    public function edit()
+    {
+        isLogged();
+        $date = date('y-m-d');
+        if (isset($_POST) && $_SERVER['REQUEST_METHOD'] == "POST") {
+            $data = array();
+            $params = array(
+                'multa' => $_POST['multa'],
+                'conditions' => $_POST['conditions'],
+                'motivo' => $_POST['motivo'],
+                'date' => $date,
+                'id_infringement' => filter_var($_POST['id_infringement'], FILTER_SANITIZE_NUMBER_INT)
+            );
+
+            $errors = $this->model->checkErrors($params);
+
+            if (count($errors) === 0) {
+
+                $params = array(
+                    'multa' => $_POST['multa'],
+                    'conditions' => $_POST['conditions'],
+                    'motivo' => $_POST['motivo'],
+                    'date' => $date,
+                    'id_infringement' => $_POST['id_infringement'],
+                );
+
+                $data = $this->model->edit($params);
+
+                if ($data['success']) {
+                    $data = $this->model->displayInfringement();
+                    $data['message'] = "Registro editado correctamente";
+                } else {
+                    $data['message'] = "El registro no se actualizo";
+                }
+            } else {
+                $data['info_vehicle'] = array(
+                    'multa' => $_POST['multa'],
+                    'conditions' => $_POST['conditions'],
+                    'motivo' => $_POST['motivo'],
+                    'id' => filter_var($_POST['id_infringement'], FILTER_SANITIZE_NUMBER_INT),
+                );
+                $data['show_message_info'] = true;
+                $data['success'] = false;
+                $data['message'] = $errors;
+                $data['editVehicle'] = true;
+            }
+            if (isModeDebug()) {
+                writeLog(INFO_LOG, "VehicleController/edit", json_encode($data));
+            }
+            $data['displayAllInfringements'] = true;
+            $this->view("InfringementView", $data);
+        }
     }
 }

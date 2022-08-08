@@ -82,7 +82,7 @@ class PeopleController extends Controller
         } else {
             $data['message'] = "La persona no se elimino correctamente";
         }
-        $data['displayAllPeoples'] = true;
+        $data['createPeople'] = true;
         $this->view("PeopleView", $data);
     }
     public function editPeople($id_people)
